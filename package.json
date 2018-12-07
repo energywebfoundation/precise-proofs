@@ -6,8 +6,14 @@
   "scripts": {
     "start": "node dist/js/index.js",
     "test": "npm run build && mocha dist/js/test/",
-    "demo": "node dist/js/demo.js",
-    "demo-debug": "node --inspect-brk dist/js/demo.js",
+    "demo1": "node dist/js/demo/1_demo_simpleproof.js",
+    "demo2": "node dist/js/demo/2_demo_invalidproof.js",
+    "demo3": "node dist/js/demo/3_demo_identicalkeyattack.js",
+    "demo4": "node dist/js/demo/4_demo_schemasareimportant.js",
+    "demo5": "node dist/js/demo/5_demo_extendedproof.js",
+    "demo6": "node dist/js/demo/6_demo_extendedidenticalkeyattack.js",
+    "demo7": "node dist/js/demo/7_demo_smartcontract.js",
+    "demo-debug": "node --inspect-brk dist/js/demo/demo.js",
     "debug": "node --inspect-brk dist/js/index.js",
     "prebuild": "rm -rf dist/js",
     "build": "node_modules/typescript/bin/tsc"
