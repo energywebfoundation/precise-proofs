@@ -1,6 +1,6 @@
 import * as Treeify from 'treeify'
 import * as Colors from 'colors/safe'
-import {PreciseProofs} from './' 
+import {PreciseProofs} from '.' 
 
 export const printMerkleTree = (merkleTree: any[], leafs: PreciseProofs.Leaf[], schema?: string[]) => {
 
@@ -14,10 +14,8 @@ export const printMerkleTree = (merkleTree: any[], leafs: PreciseProofs.Leaf[], 
     for(let i = 1; i < merkleTree.length; i++ ) {
 
         row = merkleTree[i]
-    
 
         lowerLevel = i != 1 && lowerLevel.length % 2 !== 0 ? merkleTree[i-1].concat(lowerLevel[lowerLevel.length - 1]) : merkleTree[i-1]
-
 
         const line = {}
 
@@ -49,7 +47,7 @@ export const printMerkleTree = (merkleTree: any[], leafs: PreciseProofs.Leaf[], 
 
     }
 
-    const schemaHash = schema ? PreciseProofs.hashSchema(schema) : null
+    const schemaHash = schema ? PreciseProofs.hashSchema(PreciseProofs.sortSchema(schema)) : null
 
     
 
@@ -78,7 +76,7 @@ export const printMerkleTree = (merkleTree: any[], leafs: PreciseProofs.Leaf[], 
             
             
             
-            if (leadingSpaces === 0) {
+            if (leadingSpaces === 0 && theHash !== merkleTreeRootHash) {
                 console.log(
                     data.substring(0, data.length - hashLength ) +
                     Colors.underline(Colors.yellow(shortHash)) +

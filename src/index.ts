@@ -30,6 +30,10 @@ export namespace PreciseProofs {
         return crypto.randomBytes(length).toString(encoding).slice(0, length)
     }
 
+    export  const getRootHash = (merkleTree: any[][]) => {
+        return merkleTree[merkleTree.length - 1][0]
+    }
+
     export const sortLeafsByKey = (leafs: Leaf[]): Leaf[] => {
         return leafs
             .map((leaf: Leaf) => hash(leaf.key))
@@ -37,7 +41,7 @@ export namespace PreciseProofs {
             .map((theHash: string) => leafs.find((leaf: Leaf) => theHash === hash(leaf.key)))
     }
 
-    const sortSchema = (schema: string[]): string[] => {
+    export const sortSchema = (schema: string[]): string[] => {
         return schema  
             .map( key => hash(key))
             .sort()
@@ -58,9 +62,9 @@ export namespace PreciseProofs {
         }
     }
 
-    export const createMerkleTree = (leafHashs: string[]): any[] => {
-        const tree = [leafHashs]
-        let lowerLevel = leafHashs
+    export const createMerkleTree = (leafHashes: string[]): any[] => {
+        const tree = [leafHashes]
+        let lowerLevel = leafHashes
 
         while (lowerLevel.length > 1) {
             const newLevel = []
@@ -108,7 +112,7 @@ export namespace PreciseProofs {
         })
     }
 
-    const creatPath = (merkleTree: any[], leafToProof: Leaf): any[] => {
+    const createPath = (merkleTree: any[], leafToProof: Leaf): any[] => {
 
         const merkleTreePath = []
         let currentHash = leafToProof.hash
@@ -145,21 +149,21 @@ export namespace PreciseProofs {
     export const createProof = (key: string, leafs: Leaf[], withSchema: boolean, existingMerkleTree?: any[]): Proof => {
         const sortedLeafs = sortLeafsByKey(leafs)
         const merkleTree = existingMerkleTree ? existingMerkleTree : createMerkleTree(sortedLeafs.map((leaf: Leaf) => leaf.hash))
-        const leafToProof = findLeaf(sortedLeafs, key)
+        const leafToProve = findLeaf(sortedLeafs, key)
 
         const proof = {
             key: key,
-            value: leafToProof.value,
-            salt: leafToProof.salt,
-            proofPath: creatPath(merkleTree, leafToProof)
+            value: leafToProve.value,
+            salt: leafToProve.salt,
+            proofPath: createPath(merkleTree, leafToProve)
         }
 
         return withSchema ? { 
             ...proof, 
             schemaHash: hashSchema(sortedLeafs.map((leaf: Leaf) => leaf.key))
         } : proof
-
     }
+
     const pathForPostion = (schemaLength: number, position: number) => {
         const positions = Array(schemaLength).fill(null).map((element, index) => ({
             key: index.toString(),
@@ -171,7 +175,7 @@ export namespace PreciseProofs {
         const theLeaf = findLeaf(positions, position.toString())
         const merkleTree = createMerkleTree(positions.map((leaf: Leaf) => leaf.hash))
 
-        const path = creatPath(merkleTree, theLeaf)
+        const path = createPath(merkleTree, theLeaf)
         let stringPath = ''
         path.forEach(element => {
             if (element.right) {
@@ -219,7 +223,6 @@ export namespace PreciseProofs {
             } else {
                 throw new Error('Schema is needed for extended tree proof.')
             }
-
         } else {
             return currentHash === rootHash
         }

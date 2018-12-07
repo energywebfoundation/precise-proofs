@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const Treeify = require("treeify");
 const Colors = require("colors/safe");
-const _1 = require("./");
+const _1 = require(".");
 exports.printMerkleTree = (merkleTree, leafs, schema) => {
     let resultObject = {};
     let row;
@@ -32,7 +32,7 @@ exports.printMerkleTree = (merkleTree, leafs, schema) => {
         }
         resultObject = line;
     }
-    const schemaHash = schema ? _1.PreciseProofs.hashSchema(schema) : null;
+    const schemaHash = schema ? _1.PreciseProofs.hashSchema(_1.PreciseProofs.sortSchema(schema)) : null;
     resultObject = schema ? {
         [_1.PreciseProofs.createExtendedTreeRootHash(merkleTreeRootHash, schema)]: Object.assign({}, resultObject, { [schemaHash]: null })
     } : resultObject;
@@ -45,7 +45,7 @@ exports.printMerkleTree = (merkleTree, leafs, schema) => {
             const leaf = leafs.find((leaf) => leaf.hash === data.substring(data.length - hashLength, data.length));
             const theHash = data.substring(data.length - hashLength, data.length);
             const shortHash = theHash.substring(0, 4) + '...' + theHash.substring(theHash.length - 4, theHash.length);
-            if (leadingSpaces === 0) {
+            if (leadingSpaces === 0 && theHash !== merkleTreeRootHash) {
                 console.log(data.substring(0, data.length - hashLength) +
                     Colors.underline(Colors.yellow(shortHash)) +
                     Colors.yellow(' Extended Tree Root'));
@@ -80,4 +80,4 @@ exports.printMerkleTree = (merkleTree, leafs, schema) => {
         }
     });
 };
-//# sourceMappingURL=debug.js.map
+//# sourceMappingURL=utils.js.map
