@@ -14,6 +14,10 @@ This implementation was inspired by [Centrifuge's Precise Proofs implementation 
 
 to prevent injection/duplicate key attacks and the prover to create phony proofs.
 
+## What do you find here?
+ - A small npm package to create and verify proofs yourself
+ - Examples (demos), which demonstrate the capabilities and possible vulnerabilities too (for educative purposes)
+
 ## Maintainers
 **Primary**: Adam Nagy (@ngyam)
 
@@ -38,7 +42,7 @@ Or in a Typescript project:
 import * as PreciseProofs from "precise-proofs-js"
 [...]
 ```
-The code is not documented. For examples look into the **demo files** or read the good source.
+Unfortunately the code is not documented. For examples look into the **demo files** or read the good source. They are quite intuitive though.
 
 ## Demos
 
@@ -79,12 +83,13 @@ Please read [contributing](./CONTRIBUTING.md) and our [code of conduct](./CODE_O
 ### Prerequisites
 
  - node, npm
+ - Truffle, if you want to deploy Smart Contracts
 
 ### Installing the deps
 
 ```bash
-git clone https://github.com/energywebfoundation/secretstore-js.git
-cd secretstore-js
+git clone https://github.com/energywebfoundation/precise-proofs.git
+cd precise-proofs
 npm install -D
 ```
 
@@ -112,7 +117,7 @@ This project is licensed under GPLv3 - see the [LICENSE](./LICENSE) file for det
 
 ## Output examples
 
-The document (JSON): 
+A document (JSON): 
 ```
 { operationalSince: 0,
   capacityWh: 10,
