@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Energyweb Origin project's proof-of-concept Precise Proofs implementation and demo.",
   "main": "dist/js/index.js",
+  "types": "dist/js/index.d.ts",
   "scripts": {
     "start": "node dist/js/index.js",
     "test": "npm run build && mocha dist/js/test/",
@@ -22,7 +23,7 @@
     "url": "git+https://github.com/energywebfoundation/precise-proofs.git"
   },
   "author": "Energy Web Foundation (core@energyweb.org)",
-  "license": "ISC",
+  "license": "GPLv3",
   "bugs": {
     "url": "https://github.com/energywebfoundation/precise-proofs/issues"
   },
