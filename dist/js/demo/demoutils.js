@@ -33,6 +33,7 @@ exports.demoinput = {
     gpsLongitude: "12.980977",
     listElement: [1, 3, 3]
 };
+const rpcEndpoint = "http://localhost:8545";
 exports.malignDemoinput = {
     here: 9898,
     is: 1000,
@@ -51,34 +52,38 @@ exports.malignDemoinput = {
     important: "https://www.youtube.com/watch?v=oHg5SJYRHA0"
 };
 function grabRegistry(address = "0x535ea027738590b1ad2521659f67fb25b08dd5ee") {
-    const w3 = new web3("https://rpc.slock.it/tobalaba");
+    const w3 = new web3(rpcEndpoint);
     const registryJSONString = fs.readFileSync(path.join(__dirname, "../../../build/contracts/PreciseProofCommitmentRegistry.json"), "utf-8");
     const registryJSON = JSON.parse(registryJSONString);
     //const registrycontract = new web3.eth.Contract(registryJSON.abi, "0x535ea027738590b1ad2521659f67fb25b08dd5ee");
     return new w3.eth.Contract(registryJSON.abi, address);
 }
 exports.grabRegistry = grabRegistry;
-function newCommitment(name, treeHash, schema, transaction = {}) {
+function newCommitment(name, treeHash, schema, transaction) {
     // We publish the roothash and schema
     const registrycontract = grabRegistry();
-    console.log(JSON.stringify(schema));
-    const promise = registrycontract.methods.commitment(name, treeHash, "asd").send(transaction);
-    console.log(promise);
-    return promise;
+    const schemaString = JSON.stringify(schema);
+    return registrycontract.methods.commitment(name, treeHash, schemaString).send(transaction);
 }
 exports.newCommitment = newCommitment;
 function localAccounts() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const w3 = new web3("https://rpc.slock.it/tobalaba");
-        return w3.eth.getAccounts();
-    });
+    const w3 = new web3(rpcEndpoint);
+    return w3.eth.getAccounts();
 }
 exports.localAccounts = localAccounts;
 function getCommitment(address, name) {
     return __awaiter(this, void 0, void 0, function* () {
         const registrycontract = grabRegistry();
-        return yield registrycontract.methods.getCommitment(address, name).call();
+        let result = yield registrycontract.methods.getCommitment(address, name).call();
+        return {
+            merkleRoot: result[0],
+            schema: parseSchema(result[1])
+        };
     });
 }
 exports.getCommitment = getCommitment;
+function parseSchema(schemaString) {
+    return JSON.parse(schemaString);
+}
+exports.parseSchema = parseSchema;
 //# sourceMappingURL=demoutils.js.map

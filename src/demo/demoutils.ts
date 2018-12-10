@@ -1,6 +1,12 @@
 import * as path from 'path'
 import * as fs from 'fs'
 import * as web3 from 'web3'
+import { Interface } from 'mocha';
+
+
+interface Transaction {
+    from: string
+} 
 
 export const demoinput = {
     operationalSince: 0,
@@ -25,6 +31,8 @@ export const demoinput = {
     listElement: [1, 3, 3]
 }
 
+const rpcEndpoint = "http://localhost:8545"
+
 export const malignDemoinput = {
     here: 9898,
     is: 1000,
@@ -44,28 +52,34 @@ export const malignDemoinput = {
 }
 
 export function grabRegistry(address="0x535ea027738590b1ad2521659f67fb25b08dd5ee") {
-    const w3 = new web3("https://rpc.slock.it/tobalaba")
+    const w3 = new web3(rpcEndpoint)
     const registryJSONString = fs.readFileSync(path.join(__dirname, "../../../build/contracts/PreciseProofCommitmentRegistry.json"), "utf-8")
     const registryJSON = JSON.parse(registryJSONString)
     //const registrycontract = new web3.eth.Contract(registryJSON.abi, "0x535ea027738590b1ad2521659f67fb25b08dd5ee");
     return new w3.eth.Contract(registryJSON.abi, address);
 }
 
-export function newCommitment(name: string, treeHash: string, schema: any[], transaction={}) {
+export function newCommitment(name: string, treeHash: string, schema: any[], transaction: Transaction) {
     // We publish the roothash and schema
     const registrycontract = grabRegistry()
-    console.log(JSON.stringify(schema))
-    const promise = registrycontract.methods.commitment(name, treeHash, "asd").send(transaction)
-    console.log(promise)
-    return promise
+    const schemaString = JSON.stringify(schema)
+    return registrycontract.methods.commitment(name, treeHash, schemaString).send(transaction)
 }
 
-export async function localAccounts() {
-    const w3 = new web3("https://rpc.slock.it/tobalaba")
+export function localAccounts() {
+    const w3 = new web3(rpcEndpoint)
     return w3.eth.getAccounts()
 }
 
 export async function getCommitment(address: string, name: string) {
     const registrycontract = grabRegistry()
-    return await registrycontract.methods.getCommitment(address, name).call()
+    let result = await registrycontract.methods.getCommitment(address, name).call()
+    return {
+        merkleRoot: result[0],
+        schema: parseSchema(result[1])
+    }
+}
+
+export function parseSchema(schemaString: string) {
+    return JSON.parse(schemaString)
 }

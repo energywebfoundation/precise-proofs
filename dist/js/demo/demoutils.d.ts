@@ -1,3 +1,6 @@
+interface Transaction {
+    from: string;
+}
 export declare const demoinput: {
     operationalSince: number;
     capacityWh: number;
@@ -38,6 +41,11 @@ export declare const malignDemoinput: {
     important: string;
 };
 export declare function grabRegistry(address?: string): any;
-export declare function newCommitment(name: string, treeHash: string, schema: any[], transaction?: {}): any;
-export declare function localAccounts(): Promise<any>;
-export declare function getCommitment(address: string, name: string): Promise<any>;
+export declare function newCommitment(name: string, treeHash: string, schema: any[], transaction: Transaction): any;
+export declare function localAccounts(): any;
+export declare function getCommitment(address: string, name: string): Promise<{
+    merkleRoot: any;
+    schema: any;
+}>;
+export declare function parseSchema(schemaString: string): any;
+export {};

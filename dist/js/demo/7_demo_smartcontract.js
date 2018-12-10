@@ -18,22 +18,21 @@ console.log("\nRoot hash:" + rootHash);
 console.log("Extended root hash:" + extendedTreeHash);
 utils_1.printMerkleTree(merkleTree, leafs, schema);
 console.log('\n\n### Publish commitment to a Smart Contract###\n');
-let accs;
 demoutils_1.localAccounts().then((accounts) => {
-    accs = accounts;
-    let from = accs[0];
+    let from = accounts[0];
     console.log("account " + from);
-    demoutils_1.newCommitment("test", extendedTreeHash, schema, { from: from }).then((receipt) => {
-        console.log(receipt);
+    demoutils_1.newCommitment("test", extendedTreeHash, schema, { from: from })
+        .on('transactionHash', function (hash) {
+        console.log("Transaction hash: " + hash);
+    })
+        .then((receipt) => {
         console.log('\n\n### Extended Proof ###\n');
         const extendedProof = __1.PreciseProofs.createProof('street', leafs, true);
         console.log(extendedProof);
         //Verifier reads the commitment from the contract then verifies
-        let commitment;
         demoutils_1.getCommitment(from, "test").then((comm) => {
-            commitment = comm;
-            console.log("\nVerifying the proof to the extended root hash: " + commitment.merkleRoot);
-            console.log("Result: " + __1.PreciseProofs.verifyProof(commitment.merkleRoot, extendedProof, commitment.schema));
+            console.log("\nVerifying the proof to the extended root hash: " + comm.merkleRoot);
+            console.log("Result: " + __1.PreciseProofs.verifyProof(comm.merkleRoot, extendedProof, comm.schema));
         });
     });
 });
