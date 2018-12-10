@@ -13,7 +13,6 @@ describe('#####A', () => {
         return theObject
     }
 
-
     for(let i = 1; i < maxObjectSize; i++) {
         it(`Should verify proof for all keys object with size ${i} `, () => {
             const testJson = createTestJson(i)
@@ -31,13 +30,5 @@ describe('#####A', () => {
                 assert.isTrue(PreciseProofs.verifyProof(extendedTreeHash, proof, schema), `Proof could not be verified for key ${proof.key}`)
             })
         }).timeout(10000)
-             
-            
-
-    
-        
     }
-  
-
-    
 })

@@ -1,0 +1,2957 @@
+{
+  "contractName": "PreciseProofCommitmentRegistry",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "by",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "name": "NewCommitment",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "name": "_hash",
+          "type": "string"
+        },
+        {
+          "name": "_schema",
+          "type": "string"
+        }
+      ],
+      "name": "commitment",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_by",
+          "type": "address"
+        },
+        {
+          "name": "_name",
+          "type": "string"
+        }
+      ],
+      "name": "getCommitment",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_by",
+          "type": "address"
+        },
+        {
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "name": "_hash",
+          "type": "string"
+        }
+      ],
+      "name": "checkCommitment",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b50610719806100206000396000f3006080604052600436106100565763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663023211f9811461005b578063b16ecba514610144578063be66f5c61461024f575b600080fd5b34801561006757600080fd5b506040805160206004803580820135601f810184900484028501840190955284845261013094369492936024939284019190819084018382808284375050604080516020601f89358b018035918201839004830284018301909452808352979a99988101979196509182019450925082915084018382808284375050604080516020601f89358b018035918201839004830284018301909452808352979a9998810197919650918201945092508291508401838280828437509497506102889650505050505050565b604080519115158252519081900360200190f35b34801561015057600080fd5b5061017160048035600160a060020a031690602480359081019101356103c5565b604051808060200180602001838103835285818151815260200191508051906020019080838360005b838110156101b257818101518382015260200161019a565b50505050905090810190601f1680156101df5780820380516001836020036101000a031916815260200191505b50838103825284518152845160209182019186019080838360005b838110156102125781810151838201526020016101fa565b50505050905090810190601f16801561023f5780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b34801561025b57600080fd5b5061013060048035600160a060020a0316906024803580820192908101359160443590810191013561057c565b604080518082018252838152602080820184905233600090815280825283812093518751919492889282918401908083835b602083106102d95780518252601f1990920191602091820191016102ba565b51815160209384036101000a600019018019909216911617905292019485525060405193849003810190932084518051919461031a94508593500190610652565b5060208281015180516103339260018501920190610652565b50905050836040518082805190602001908083835b602083106103675780518252601f199092019160209182019101610348565b5181516020939093036101000a60001901801990911692169190911790526040519201829003822093503392507ffb96e875b9f7ce813ca0f8bb77132ddb3c7a4833f21db7c72ad6bc49f728afdc9160009150a35060019392505050565b60608060008086600160a060020a0316600160a060020a03168152602001908152602001600020848460405180838380828437820191505092505050908152602001604051809103902060000160008087600160a060020a0316600160a060020a03168152602001908152602001600020858560405180838380828437919091019485525050604080516020948190038501812086546002600180831615610100026000190190921604601f810188900488028401880190945283835201949093508592508301828280156104db5780601f106104b0576101008083540402835291602001916104db565b820191906000526020600020905b8154815290600101906020018083116104be57829003601f168201915b5050845460408051602060026001851615610100026000190190941693909304601f8101849004840282018401909252818152959750869450925084019050828280156105695780601f1061053e57610100808354040283529160200191610569565b820191906000526020600020905b81548152906001019060200180831161054c57829003601f168201915b5050505050905091509150935093915050565b600082826040518083838082843760408051939091018390038320600160a060020a038d16600090815260208190529190912090955093508992508891905080838380828437820191505092505050908152602001604051809103902060000160405180828054600181600116156101000203166002900480156106375780601f10610615576101008083540402835291820191610637565b820191906000526020600020905b815481529060010190602001808311610623575b50506040519081900390209290921498975050505050505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061069357805160ff19168380011785556106c0565b828001600101855582156106c0579182015b828111156106c05782518255916020019190600101906106a5565b506106cc9291506106d0565b5090565b6106ea91905b808211156106cc57600081556001016106d6565b905600a165627a7a72305820e77c9f9435c68b77e95f3cc6c3e3e1fcf82abe445878f28d04a8d4feced9287b0029",
+  "deployedBytecode": "0x6080604052600436106100565763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663023211f9811461005b578063b16ecba514610144578063be66f5c61461024f575b600080fd5b34801561006757600080fd5b506040805160206004803580820135601f810184900484028501840190955284845261013094369492936024939284019190819084018382808284375050604080516020601f89358b018035918201839004830284018301909452808352979a99988101979196509182019450925082915084018382808284375050604080516020601f89358b018035918201839004830284018301909452808352979a9998810197919650918201945092508291508401838280828437509497506102889650505050505050565b604080519115158252519081900360200190f35b34801561015057600080fd5b5061017160048035600160a060020a031690602480359081019101356103c5565b604051808060200180602001838103835285818151815260200191508051906020019080838360005b838110156101b257818101518382015260200161019a565b50505050905090810190601f1680156101df5780820380516001836020036101000a031916815260200191505b50838103825284518152845160209182019186019080838360005b838110156102125781810151838201526020016101fa565b50505050905090810190601f16801561023f5780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b34801561025b57600080fd5b5061013060048035600160a060020a0316906024803580820192908101359160443590810191013561057c565b604080518082018252838152602080820184905233600090815280825283812093518751919492889282918401908083835b602083106102d95780518252601f1990920191602091820191016102ba565b51815160209384036101000a600019018019909216911617905292019485525060405193849003810190932084518051919461031a94508593500190610652565b5060208281015180516103339260018501920190610652565b50905050836040518082805190602001908083835b602083106103675780518252601f199092019160209182019101610348565b5181516020939093036101000a60001901801990911692169190911790526040519201829003822093503392507ffb96e875b9f7ce813ca0f8bb77132ddb3c7a4833f21db7c72ad6bc49f728afdc9160009150a35060019392505050565b60608060008086600160a060020a0316600160a060020a03168152602001908152602001600020848460405180838380828437820191505092505050908152602001604051809103902060000160008087600160a060020a0316600160a060020a03168152602001908152602001600020858560405180838380828437919091019485525050604080516020948190038501812086546002600180831615610100026000190190921604601f810188900488028401880190945283835201949093508592508301828280156104db5780601f106104b0576101008083540402835291602001916104db565b820191906000526020600020905b8154815290600101906020018083116104be57829003601f168201915b5050845460408051602060026001851615610100026000190190941693909304601f8101849004840282018401909252818152959750869450925084019050828280156105695780601f1061053e57610100808354040283529160200191610569565b820191906000526020600020905b81548152906001019060200180831161054c57829003601f168201915b5050505050905091509150935093915050565b600082826040518083838082843760408051939091018390038320600160a060020a038d16600090815260208190529190912090955093508992508891905080838380828437820191505092505050908152602001604051809103902060000160405180828054600181600116156101000203166002900480156106375780601f10610615576101008083540402835291820191610637565b820191906000526020600020905b815481529060010190602001808311610623575b50506040519081900390209290921498975050505050505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061069357805160ff19168380011785556106c0565b828001600101855582156106c0579182015b828111156106c05782518255916020019190600101906106a5565b506106cc9291506106d0565b5090565b6106ea91905b808211156106cc57600081556001016106d6565b905600a165627a7a72305820e77c9f9435c68b77e95f3cc6c3e3e1fcf82abe445878f28d04a8d4feced9287b0029",
+  "sourceMap": "97:897:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;97:897:1;;;;;;;",
+  "deployedSourceMap": "97:897:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;369:230;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;369:230:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;369:230:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;369:230:1;;;;-1:-1:-1;369:230:1;-1:-1:-1;369:230:1;;-1:-1:-1;369:230:1;;;;;;;;-1:-1:-1;;369:230:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;369:230:1;;;;-1:-1:-1;369:230:1;-1:-1:-1;369:230:1;;-1:-1:-1;369:230:1;;;;;;;;-1:-1:-1;369:230:1;;-1:-1:-1;369:230:1;;-1:-1:-1;;;;;;;369:230:1;;;;;;;;;;;;;;;;;;;605:181;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;605:181:1;;;;-1:-1:-1;;;;;605:181:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;605:181:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;605:181:1;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;605:181:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;792:200;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;792:200:1;;;;-1:-1:-1;;;;;792:200:1;;;;;;;;;;;;;;;;;;;;;;;;369:230;498:26;;;;;;;;;;;;;;;;;;477:10;449:4;465:23;;;;;;;;;:30;;;;449:4;;465:23;489:5;;465:30;;;;;;;;36:153:-1;66:2;58:11;;36:153;;176:10;;164:23;;-1:-1;;139:12;;;;98:2;89:12;;;;114;36:153;;;299:10;344;;263:2;259:12;;;254:3;250:22;-1:-1;;246:30;311:9;;295:26;;;340:21;;377:20;365:33;;465:30:1;;;;;-1:-1:-1;465:30:1;;;;;;;;;;;:59;;;;:30;;:59;;-1:-1:-1;465:30:1;;-1:-1:-1;465:59:1;;;:::i;:::-;-1:-1:-1;465:59:1;;;;;;;;;;;;;;;;:::i;:::-;;;;;565:5;539:32;;;;;;;;;;;;;36:153:-1;66:2;58:11;;36:153;;176:10;;164:23;;-1:-1;;139:12;;;;98:2;89:12;;;;114;36:153;;;299:10;344;;263:2;259:12;;;;254:3;250:22;-1:-1;;246:30;311:9;;295:26;;;340:21;;377:20;;;;365:33;;539:32:1;;;;;;;;;;-1:-1:-1;553:10:1;;-1:-1:-1;539:32:1;;-1:-1:-1;;;539:32:1;-1:-1:-1;588:4:1;369:230;;;;;:::o;605:181::-;678:6;686;712:11;:16;724:3;-1:-1:-1;;;;;712:16:1;-1:-1:-1;;;;;712:16:1;;;;;;;;;;;;729:5;;712:23;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:34;;748:11;:16;760:3;-1:-1:-1;;;;;748:16:1;-1:-1:-1;;;;;748:16:1;;;;;;;;;;;;765:5;;748:23;;;;;;;;;;;;;;;;-1:-1:-1;;748:23:1;;;;;;;;;;;;704:75;;;748:30;704:75;;;;;;-1:-1:-1;;704:75:1;;;;;;;;;;;;;;;;;;;;;;;748:30;;:23;;-1:-1:-1;704:75:1;;-1:-1:-1;704:75:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;704:75:1;;;;;;;;;;;;;-1:-1:-1;;704:75:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;704:75:1;;-1:-1:-1;704:75:1;-1:-1:-1;704:75:1;;;-1:-1:-1;704:75:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;605:181;;;;;;:::o;792:200::-;881:4;977:5;;961:23;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;921:16:1;;905:79;921:16;;;;;;;;;;;961:23;;-1:-1:-1;921:16:1;-1:-1:-1;938:5:1;;-1:-1:-1;938:5:1;;961:23;-1:-1:-1;961:23:1;938:5;;;;961:23;921;;;;;;;;;;;;;;;;;;;;;;:34;;905:52;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;905:52:1;;;;;;;;:79;;;;;792:200;-1:-1:-1;;;;;;;;792:200:1:o;97:897::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;97:897:1;;;-1:-1:-1;97:897:1;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.24;\n\n\n// This is only for demonstration purposes\n// Not made for production\ncontract PreciseProofCommitmentRegistry {\n\n    struct Commitment {\n        string merkleRoot;\n        string schema;\n    }\n\n    event NewCommitment(address indexed by, string indexed name);\n\n    mapping(address => mapping(string => Commitment)) internal commitments;\n\n    function commitment(string _name, string _hash, string _schema) public returns (bool) {\n        commitments[msg.sender][_name] = Commitment(_hash, _schema);\n        emit NewCommitment(msg.sender, _name);\n        return true;\n    }\n\n    function getCommitment(address _by, string _name) external view returns (string, string) {\n        return (commitments[_by][_name].merkleRoot, commitments[_by][_name].schema);\n    }\n\n    function checkCommitment(address _by, string _name, string _hash) external view returns (bool) {\n        return (keccak256(bytes(commitments[_by][_name].merkleRoot)) == keccak256(bytes(_hash)));\n    }\n}",
+  "sourcePath": "/home/aznagy/work/precise-proofs/contracts/PreciseProofCommitmentRegistry.sol",
+  "ast": {
+    "absolutePath": "/home/aznagy/work/precise-proofs/contracts/PreciseProofCommitmentRegistry.sol",
+    "exportedSymbols": {
+      "PreciseProofCommitmentRegistry": [
+        164
+      ]
+    },
+    "id": 165,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 58,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:1"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 164,
+        "linearizedBaseContracts": [
+          164
+        ],
+        "name": "PreciseProofCommitmentRegistry",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "PreciseProofCommitmentRegistry.Commitment",
+            "id": 63,
+            "members": [
+              {
+                "constant": false,
+                "id": 60,
+                "name": "merkleRoot",
+                "nodeType": "VariableDeclaration",
+                "scope": 63,
+                "src": "172:17:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 59,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "172:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 62,
+                "name": "schema",
+                "nodeType": "VariableDeclaration",
+                "scope": 63,
+                "src": "199:13:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 61,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "199:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Commitment",
+            "nodeType": "StructDefinition",
+            "scope": 164,
+            "src": "144:75:1",
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 69,
+            "name": "NewCommitment",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 68,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 65,
+                  "indexed": true,
+                  "name": "by",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 69,
+                  "src": "245:18:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 64,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "245:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 67,
+                  "indexed": true,
+                  "name": "name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 69,
+                  "src": "265:19:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 66,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "265:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "244:41:1"
+            },
+            "src": "225:61:1"
+          },
+          {
+            "constant": false,
+            "id": 75,
+            "name": "commitments",
+            "nodeType": "VariableDeclaration",
+            "scope": 164,
+            "src": "292:70:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$_$",
+              "typeString": "mapping(address => mapping(string => struct PreciseProofCommitmentRegistry.Commitment))"
+            },
+            "typeName": {
+              "id": 74,
+              "keyType": {
+                "id": 70,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "300:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "292:49:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$_$",
+                "typeString": "mapping(address => mapping(string => struct PreciseProofCommitmentRegistry.Commitment))"
+              },
+              "valueType": {
+                "id": 73,
+                "keyType": {
+                  "id": 71,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "319:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "311:29:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$",
+                  "typeString": "mapping(string => struct PreciseProofCommitmentRegistry.Commitment)"
+                },
+                "valueType": {
+                  "contractScope": null,
+                  "id": 72,
+                  "name": "Commitment",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 63,
+                  "src": "329:10:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Commitment_$63_storage_ptr",
+                    "typeString": "struct PreciseProofCommitmentRegistry.Commitment"
+                  }
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 106,
+              "nodeType": "Block",
+              "src": "455:144:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 96,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 86,
+                          "name": "commitments",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 75,
+                          "src": "465:11:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$_$",
+                            "typeString": "mapping(address => mapping(string memory => struct PreciseProofCommitmentRegistry.Commitment storage ref))"
+                          }
+                        },
+                        "id": 90,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 87,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 179,
+                            "src": "477:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 88,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "477:10:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "465:23:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$",
+                          "typeString": "mapping(string memory => struct PreciseProofCommitmentRegistry.Commitment storage ref)"
+                        }
+                      },
+                      "id": 91,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 89,
+                        "name": "_name",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 77,
+                        "src": "489:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "465:30:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Commitment_$63_storage",
+                        "typeString": "struct PreciseProofCommitmentRegistry.Commitment storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 93,
+                          "name": "_hash",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 79,
+                          "src": "509:5:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 94,
+                          "name": "_schema",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 81,
+                          "src": "516:7:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        ],
+                        "id": 92,
+                        "name": "Commitment",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 63,
+                        "src": "498:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_struct$_Commitment_$63_storage_ptr_$",
+                          "typeString": "type(struct PreciseProofCommitmentRegistry.Commitment storage pointer)"
+                        }
+                      },
+                      "id": 95,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "structConstructorCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "498:26:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Commitment_$63_memory",
+                        "typeString": "struct PreciseProofCommitmentRegistry.Commitment memory"
+                      }
+                    },
+                    "src": "465:59:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Commitment_$63_storage",
+                      "typeString": "struct PreciseProofCommitmentRegistry.Commitment storage ref"
+                    }
+                  },
+                  "id": 97,
+                  "nodeType": "ExpressionStatement",
+                  "src": "465:59:1"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 99,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 179,
+                          "src": "553:3:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 100,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "553:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 101,
+                        "name": "_name",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 77,
+                        "src": "565:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      ],
+                      "id": 98,
+                      "name": "NewCommitment",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 69,
+                      "src": "539:13:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (address,string memory)"
+                      }
+                    },
+                    "id": 102,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "539:32:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 103,
+                  "nodeType": "EmitStatement",
+                  "src": "534:37:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "74727565",
+                    "id": 104,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "bool",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "588:4:1",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    },
+                    "value": "true"
+                  },
+                  "functionReturnParameters": 85,
+                  "id": 105,
+                  "nodeType": "Return",
+                  "src": "581:11:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 107,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "commitment",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 82,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 77,
+                  "name": "_name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 107,
+                  "src": "389:12:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 76,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "389:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 79,
+                  "name": "_hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 107,
+                  "src": "403:12:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 78,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "403:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 81,
+                  "name": "_schema",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 107,
+                  "src": "417:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 80,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "417:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "388:44:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 85,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 84,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 107,
+                  "src": "449:4:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 83,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "449:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "448:6:1"
+            },
+            "scope": 164,
+            "src": "369:230:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 132,
+              "nodeType": "Block",
+              "src": "694:92:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "baseExpression": {
+                              "argumentTypes": null,
+                              "id": 118,
+                              "name": "commitments",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 75,
+                              "src": "712:11:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$_$",
+                                "typeString": "mapping(address => mapping(string memory => struct PreciseProofCommitmentRegistry.Commitment storage ref))"
+                              }
+                            },
+                            "id": 120,
+                            "indexExpression": {
+                              "argumentTypes": null,
+                              "id": 119,
+                              "name": "_by",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 109,
+                              "src": "724:3:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "712:16:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$",
+                              "typeString": "mapping(string memory => struct PreciseProofCommitmentRegistry.Commitment storage ref)"
+                            }
+                          },
+                          "id": 122,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "id": 121,
+                            "name": "_name",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 111,
+                            "src": "729:5:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_calldata_ptr",
+                              "typeString": "string calldata"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "712:23:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Commitment_$63_storage",
+                            "typeString": "struct PreciseProofCommitmentRegistry.Commitment storage ref"
+                          }
+                        },
+                        "id": 123,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "merkleRoot",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 60,
+                        "src": "712:34:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "baseExpression": {
+                              "argumentTypes": null,
+                              "id": 124,
+                              "name": "commitments",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 75,
+                              "src": "748:11:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$_$",
+                                "typeString": "mapping(address => mapping(string memory => struct PreciseProofCommitmentRegistry.Commitment storage ref))"
+                              }
+                            },
+                            "id": 126,
+                            "indexExpression": {
+                              "argumentTypes": null,
+                              "id": 125,
+                              "name": "_by",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 109,
+                              "src": "760:3:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "748:16:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$",
+                              "typeString": "mapping(string memory => struct PreciseProofCommitmentRegistry.Commitment storage ref)"
+                            }
+                          },
+                          "id": 128,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "id": 127,
+                            "name": "_name",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 111,
+                            "src": "765:5:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_calldata_ptr",
+                              "typeString": "string calldata"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "748:23:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Commitment_$63_storage",
+                            "typeString": "struct PreciseProofCommitmentRegistry.Commitment storage ref"
+                          }
+                        },
+                        "id": 129,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "schema",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 62,
+                        "src": "748:30:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        }
+                      }
+                    ],
+                    "id": 130,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "711:68:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$_t_string_storage_$_t_string_storage_$",
+                      "typeString": "tuple(string storage ref,string storage ref)"
+                    }
+                  },
+                  "functionReturnParameters": 117,
+                  "id": 131,
+                  "nodeType": "Return",
+                  "src": "704:75:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 133,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getCommitment",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 112,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 109,
+                  "name": "_by",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 133,
+                  "src": "628:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 108,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "628:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 111,
+                  "name": "_name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 133,
+                  "src": "641:12:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 110,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "641:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "627:27:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 117,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 114,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 133,
+                  "src": "678:6:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 113,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "678:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 116,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 133,
+                  "src": "686:6:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 115,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "686:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "677:16:1"
+            },
+            "scope": 164,
+            "src": "605:181:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 162,
+              "nodeType": "Block",
+              "src": "887:105:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        "id": 159,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "arguments": [
+                                {
+                                  "argumentTypes": null,
+                                  "expression": {
+                                    "argumentTypes": null,
+                                    "baseExpression": {
+                                      "argumentTypes": null,
+                                      "baseExpression": {
+                                        "argumentTypes": null,
+                                        "id": 146,
+                                        "name": "commitments",
+                                        "nodeType": "Identifier",
+                                        "overloadedDeclarations": [],
+                                        "referencedDeclaration": 75,
+                                        "src": "921:11:1",
+                                        "typeDescriptions": {
+                                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$_$",
+                                          "typeString": "mapping(address => mapping(string memory => struct PreciseProofCommitmentRegistry.Commitment storage ref))"
+                                        }
+                                      },
+                                      "id": 148,
+                                      "indexExpression": {
+                                        "argumentTypes": null,
+                                        "id": 147,
+                                        "name": "_by",
+                                        "nodeType": "Identifier",
+                                        "overloadedDeclarations": [],
+                                        "referencedDeclaration": 135,
+                                        "src": "933:3:1",
+                                        "typeDescriptions": {
+                                          "typeIdentifier": "t_address",
+                                          "typeString": "address"
+                                        }
+                                      },
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "nodeType": "IndexAccess",
+                                      "src": "921:16:1",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$",
+                                        "typeString": "mapping(string memory => struct PreciseProofCommitmentRegistry.Commitment storage ref)"
+                                      }
+                                    },
+                                    "id": 150,
+                                    "indexExpression": {
+                                      "argumentTypes": null,
+                                      "id": 149,
+                                      "name": "_name",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": 137,
+                                      "src": "938:5:1",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_string_calldata_ptr",
+                                        "typeString": "string calldata"
+                                      }
+                                    },
+                                    "isConstant": false,
+                                    "isLValue": true,
+                                    "isPure": false,
+                                    "lValueRequested": false,
+                                    "nodeType": "IndexAccess",
+                                    "src": "921:23:1",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_struct$_Commitment_$63_storage",
+                                      "typeString": "struct PreciseProofCommitmentRegistry.Commitment storage ref"
+                                    }
+                                  },
+                                  "id": 151,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "memberName": "merkleRoot",
+                                  "nodeType": "MemberAccess",
+                                  "referencedDeclaration": 60,
+                                  "src": "921:34:1",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_string_storage",
+                                    "typeString": "string storage ref"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_string_storage",
+                                    "typeString": "string storage ref"
+                                  }
+                                ],
+                                "id": 145,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": true,
+                                "lValueRequested": false,
+                                "nodeType": "ElementaryTypeNameExpression",
+                                "src": "915:5:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_type$_t_bytes_storage_ptr_$",
+                                  "typeString": "type(bytes storage pointer)"
+                                },
+                                "typeName": "bytes"
+                              },
+                              "id": 152,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "typeConversion",
+                              "lValueRequested": false,
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "915:41:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes_storage",
+                                "typeString": "bytes storage ref"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_bytes_storage",
+                                "typeString": "bytes storage ref"
+                              }
+                            ],
+                            "id": 144,
+                            "name": "keccak256",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 173,
+                            "src": "905:9:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
+                              "typeString": "function () pure returns (bytes32)"
+                            }
+                          },
+                          "id": 153,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "905:52:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "arguments": [
+                                {
+                                  "argumentTypes": null,
+                                  "id": 156,
+                                  "name": "_hash",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 139,
+                                  "src": "977:5:1",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_string_calldata_ptr",
+                                    "typeString": "string calldata"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_string_calldata_ptr",
+                                    "typeString": "string calldata"
+                                  }
+                                ],
+                                "id": 155,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": true,
+                                "lValueRequested": false,
+                                "nodeType": "ElementaryTypeNameExpression",
+                                "src": "971:5:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_type$_t_bytes_storage_ptr_$",
+                                  "typeString": "type(bytes storage pointer)"
+                                },
+                                "typeName": "bytes"
+                              },
+                              "id": 157,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "typeConversion",
+                              "lValueRequested": false,
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "971:12:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes_calldata",
+                                "typeString": "bytes calldata"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_bytes_calldata",
+                                "typeString": "bytes calldata"
+                              }
+                            ],
+                            "id": 154,
+                            "name": "keccak256",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 173,
+                            "src": "961:9:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
+                              "typeString": "function () pure returns (bytes32)"
+                            }
+                          },
+                          "id": 158,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "961:23:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "src": "905:79:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "id": 160,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "904:81:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 143,
+                  "id": 161,
+                  "nodeType": "Return",
+                  "src": "897:88:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 163,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "checkCommitment",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 140,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 135,
+                  "name": "_by",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 163,
+                  "src": "817:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 134,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "817:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 137,
+                  "name": "_name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 163,
+                  "src": "830:12:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 136,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "830:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 139,
+                  "name": "_hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 163,
+                  "src": "844:12:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 138,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "844:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "816:41:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 143,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 142,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 163,
+                  "src": "881:4:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 141,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "881:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "880:6:1"
+            },
+            "scope": 164,
+            "src": "792:200:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 165,
+        "src": "97:897:1"
+      }
+    ],
+    "src": "0:994:1"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/aznagy/work/precise-proofs/contracts/PreciseProofCommitmentRegistry.sol",
+    "exportedSymbols": {
+      "PreciseProofCommitmentRegistry": [
+        164
+      ]
+    },
+    "id": 165,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 58,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:1"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 164,
+        "linearizedBaseContracts": [
+          164
+        ],
+        "name": "PreciseProofCommitmentRegistry",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "PreciseProofCommitmentRegistry.Commitment",
+            "id": 63,
+            "members": [
+              {
+                "constant": false,
+                "id": 60,
+                "name": "merkleRoot",
+                "nodeType": "VariableDeclaration",
+                "scope": 63,
+                "src": "172:17:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 59,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "172:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 62,
+                "name": "schema",
+                "nodeType": "VariableDeclaration",
+                "scope": 63,
+                "src": "199:13:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 61,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "199:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Commitment",
+            "nodeType": "StructDefinition",
+            "scope": 164,
+            "src": "144:75:1",
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 69,
+            "name": "NewCommitment",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 68,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 65,
+                  "indexed": true,
+                  "name": "by",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 69,
+                  "src": "245:18:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 64,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "245:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 67,
+                  "indexed": true,
+                  "name": "name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 69,
+                  "src": "265:19:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 66,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "265:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "244:41:1"
+            },
+            "src": "225:61:1"
+          },
+          {
+            "constant": false,
+            "id": 75,
+            "name": "commitments",
+            "nodeType": "VariableDeclaration",
+            "scope": 164,
+            "src": "292:70:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$_$",
+              "typeString": "mapping(address => mapping(string => struct PreciseProofCommitmentRegistry.Commitment))"
+            },
+            "typeName": {
+              "id": 74,
+              "keyType": {
+                "id": 70,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "300:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "292:49:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$_$",
+                "typeString": "mapping(address => mapping(string => struct PreciseProofCommitmentRegistry.Commitment))"
+              },
+              "valueType": {
+                "id": 73,
+                "keyType": {
+                  "id": 71,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "319:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "311:29:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$",
+                  "typeString": "mapping(string => struct PreciseProofCommitmentRegistry.Commitment)"
+                },
+                "valueType": {
+                  "contractScope": null,
+                  "id": 72,
+                  "name": "Commitment",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 63,
+                  "src": "329:10:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Commitment_$63_storage_ptr",
+                    "typeString": "struct PreciseProofCommitmentRegistry.Commitment"
+                  }
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 106,
+              "nodeType": "Block",
+              "src": "455:144:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 96,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 86,
+                          "name": "commitments",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 75,
+                          "src": "465:11:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$_$",
+                            "typeString": "mapping(address => mapping(string memory => struct PreciseProofCommitmentRegistry.Commitment storage ref))"
+                          }
+                        },
+                        "id": 90,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 87,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 179,
+                            "src": "477:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 88,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "477:10:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "465:23:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$",
+                          "typeString": "mapping(string memory => struct PreciseProofCommitmentRegistry.Commitment storage ref)"
+                        }
+                      },
+                      "id": 91,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 89,
+                        "name": "_name",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 77,
+                        "src": "489:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "465:30:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Commitment_$63_storage",
+                        "typeString": "struct PreciseProofCommitmentRegistry.Commitment storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 93,
+                          "name": "_hash",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 79,
+                          "src": "509:5:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 94,
+                          "name": "_schema",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 81,
+                          "src": "516:7:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        ],
+                        "id": 92,
+                        "name": "Commitment",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 63,
+                        "src": "498:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_struct$_Commitment_$63_storage_ptr_$",
+                          "typeString": "type(struct PreciseProofCommitmentRegistry.Commitment storage pointer)"
+                        }
+                      },
+                      "id": 95,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "structConstructorCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "498:26:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Commitment_$63_memory",
+                        "typeString": "struct PreciseProofCommitmentRegistry.Commitment memory"
+                      }
+                    },
+                    "src": "465:59:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Commitment_$63_storage",
+                      "typeString": "struct PreciseProofCommitmentRegistry.Commitment storage ref"
+                    }
+                  },
+                  "id": 97,
+                  "nodeType": "ExpressionStatement",
+                  "src": "465:59:1"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 99,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 179,
+                          "src": "553:3:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 100,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "553:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 101,
+                        "name": "_name",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 77,
+                        "src": "565:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      ],
+                      "id": 98,
+                      "name": "NewCommitment",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 69,
+                      "src": "539:13:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (address,string memory)"
+                      }
+                    },
+                    "id": 102,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "539:32:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 103,
+                  "nodeType": "EmitStatement",
+                  "src": "534:37:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "74727565",
+                    "id": 104,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "bool",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "588:4:1",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    },
+                    "value": "true"
+                  },
+                  "functionReturnParameters": 85,
+                  "id": 105,
+                  "nodeType": "Return",
+                  "src": "581:11:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 107,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "commitment",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 82,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 77,
+                  "name": "_name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 107,
+                  "src": "389:12:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 76,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "389:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 79,
+                  "name": "_hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 107,
+                  "src": "403:12:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 78,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "403:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 81,
+                  "name": "_schema",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 107,
+                  "src": "417:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 80,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "417:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "388:44:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 85,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 84,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 107,
+                  "src": "449:4:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 83,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "449:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "448:6:1"
+            },
+            "scope": 164,
+            "src": "369:230:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 132,
+              "nodeType": "Block",
+              "src": "694:92:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "baseExpression": {
+                              "argumentTypes": null,
+                              "id": 118,
+                              "name": "commitments",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 75,
+                              "src": "712:11:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$_$",
+                                "typeString": "mapping(address => mapping(string memory => struct PreciseProofCommitmentRegistry.Commitment storage ref))"
+                              }
+                            },
+                            "id": 120,
+                            "indexExpression": {
+                              "argumentTypes": null,
+                              "id": 119,
+                              "name": "_by",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 109,
+                              "src": "724:3:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "712:16:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$",
+                              "typeString": "mapping(string memory => struct PreciseProofCommitmentRegistry.Commitment storage ref)"
+                            }
+                          },
+                          "id": 122,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "id": 121,
+                            "name": "_name",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 111,
+                            "src": "729:5:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_calldata_ptr",
+                              "typeString": "string calldata"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "712:23:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Commitment_$63_storage",
+                            "typeString": "struct PreciseProofCommitmentRegistry.Commitment storage ref"
+                          }
+                        },
+                        "id": 123,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "merkleRoot",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 60,
+                        "src": "712:34:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "baseExpression": {
+                              "argumentTypes": null,
+                              "id": 124,
+                              "name": "commitments",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 75,
+                              "src": "748:11:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$_$",
+                                "typeString": "mapping(address => mapping(string memory => struct PreciseProofCommitmentRegistry.Commitment storage ref))"
+                              }
+                            },
+                            "id": 126,
+                            "indexExpression": {
+                              "argumentTypes": null,
+                              "id": 125,
+                              "name": "_by",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 109,
+                              "src": "760:3:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "748:16:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$",
+                              "typeString": "mapping(string memory => struct PreciseProofCommitmentRegistry.Commitment storage ref)"
+                            }
+                          },
+                          "id": 128,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "id": 127,
+                            "name": "_name",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 111,
+                            "src": "765:5:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_calldata_ptr",
+                              "typeString": "string calldata"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "748:23:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Commitment_$63_storage",
+                            "typeString": "struct PreciseProofCommitmentRegistry.Commitment storage ref"
+                          }
+                        },
+                        "id": 129,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "schema",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 62,
+                        "src": "748:30:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        }
+                      }
+                    ],
+                    "id": 130,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "711:68:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$_t_string_storage_$_t_string_storage_$",
+                      "typeString": "tuple(string storage ref,string storage ref)"
+                    }
+                  },
+                  "functionReturnParameters": 117,
+                  "id": 131,
+                  "nodeType": "Return",
+                  "src": "704:75:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 133,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getCommitment",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 112,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 109,
+                  "name": "_by",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 133,
+                  "src": "628:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 108,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "628:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 111,
+                  "name": "_name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 133,
+                  "src": "641:12:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 110,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "641:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "627:27:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 117,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 114,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 133,
+                  "src": "678:6:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 113,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "678:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 116,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 133,
+                  "src": "686:6:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 115,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "686:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "677:16:1"
+            },
+            "scope": 164,
+            "src": "605:181:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 162,
+              "nodeType": "Block",
+              "src": "887:105:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        "id": 159,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "arguments": [
+                                {
+                                  "argumentTypes": null,
+                                  "expression": {
+                                    "argumentTypes": null,
+                                    "baseExpression": {
+                                      "argumentTypes": null,
+                                      "baseExpression": {
+                                        "argumentTypes": null,
+                                        "id": 146,
+                                        "name": "commitments",
+                                        "nodeType": "Identifier",
+                                        "overloadedDeclarations": [],
+                                        "referencedDeclaration": 75,
+                                        "src": "921:11:1",
+                                        "typeDescriptions": {
+                                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$_$",
+                                          "typeString": "mapping(address => mapping(string memory => struct PreciseProofCommitmentRegistry.Commitment storage ref))"
+                                        }
+                                      },
+                                      "id": 148,
+                                      "indexExpression": {
+                                        "argumentTypes": null,
+                                        "id": 147,
+                                        "name": "_by",
+                                        "nodeType": "Identifier",
+                                        "overloadedDeclarations": [],
+                                        "referencedDeclaration": 135,
+                                        "src": "933:3:1",
+                                        "typeDescriptions": {
+                                          "typeIdentifier": "t_address",
+                                          "typeString": "address"
+                                        }
+                                      },
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "nodeType": "IndexAccess",
+                                      "src": "921:16:1",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Commitment_$63_storage_$",
+                                        "typeString": "mapping(string memory => struct PreciseProofCommitmentRegistry.Commitment storage ref)"
+                                      }
+                                    },
+                                    "id": 150,
+                                    "indexExpression": {
+                                      "argumentTypes": null,
+                                      "id": 149,
+                                      "name": "_name",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": 137,
+                                      "src": "938:5:1",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_string_calldata_ptr",
+                                        "typeString": "string calldata"
+                                      }
+                                    },
+                                    "isConstant": false,
+                                    "isLValue": true,
+                                    "isPure": false,
+                                    "lValueRequested": false,
+                                    "nodeType": "IndexAccess",
+                                    "src": "921:23:1",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_struct$_Commitment_$63_storage",
+                                      "typeString": "struct PreciseProofCommitmentRegistry.Commitment storage ref"
+                                    }
+                                  },
+                                  "id": 151,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "memberName": "merkleRoot",
+                                  "nodeType": "MemberAccess",
+                                  "referencedDeclaration": 60,
+                                  "src": "921:34:1",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_string_storage",
+                                    "typeString": "string storage ref"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_string_storage",
+                                    "typeString": "string storage ref"
+                                  }
+                                ],
+                                "id": 145,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": true,
+                                "lValueRequested": false,
+                                "nodeType": "ElementaryTypeNameExpression",
+                                "src": "915:5:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_type$_t_bytes_storage_ptr_$",
+                                  "typeString": "type(bytes storage pointer)"
+                                },
+                                "typeName": "bytes"
+                              },
+                              "id": 152,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "typeConversion",
+                              "lValueRequested": false,
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "915:41:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes_storage",
+                                "typeString": "bytes storage ref"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_bytes_storage",
+                                "typeString": "bytes storage ref"
+                              }
+                            ],
+                            "id": 144,
+                            "name": "keccak256",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 173,
+                            "src": "905:9:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
+                              "typeString": "function () pure returns (bytes32)"
+                            }
+                          },
+                          "id": 153,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "905:52:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "arguments": [
+                                {
+                                  "argumentTypes": null,
+                                  "id": 156,
+                                  "name": "_hash",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 139,
+                                  "src": "977:5:1",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_string_calldata_ptr",
+                                    "typeString": "string calldata"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_string_calldata_ptr",
+                                    "typeString": "string calldata"
+                                  }
+                                ],
+                                "id": 155,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": true,
+                                "lValueRequested": false,
+                                "nodeType": "ElementaryTypeNameExpression",
+                                "src": "971:5:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_type$_t_bytes_storage_ptr_$",
+                                  "typeString": "type(bytes storage pointer)"
+                                },
+                                "typeName": "bytes"
+                              },
+                              "id": 157,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "typeConversion",
+                              "lValueRequested": false,
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "971:12:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes_calldata",
+                                "typeString": "bytes calldata"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_bytes_calldata",
+                                "typeString": "bytes calldata"
+                              }
+                            ],
+                            "id": 154,
+                            "name": "keccak256",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 173,
+                            "src": "961:9:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
+                              "typeString": "function () pure returns (bytes32)"
+                            }
+                          },
+                          "id": 158,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "961:23:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "src": "905:79:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "id": 160,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "904:81:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 143,
+                  "id": 161,
+                  "nodeType": "Return",
+                  "src": "897:88:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 163,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "checkCommitment",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 140,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 135,
+                  "name": "_by",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 163,
+                  "src": "817:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 134,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "817:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 137,
+                  "name": "_name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 163,
+                  "src": "830:12:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 136,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "830:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 139,
+                  "name": "_hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 163,
+                  "src": "844:12:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 138,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "844:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "816:41:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 143,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 142,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 163,
+                  "src": "881:4:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 141,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "881:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "880:6:1"
+            },
+            "scope": 164,
+            "src": "792:200:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 165,
+        "src": "97:897:1"
+      }
+    ],
+    "src": "0:994:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {
+    "401697": {
+      "events": {},
+      "links": {},
+      "address": "0x24b0862da2813a329a7d5e6b89acf69767a23bfb",
+      "transactionHash": "0x58ef02507086fd8655a93f95f6a2fa56222fc053e82ff9295936ec912ddc89a9"
+    }
+  },
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2018-12-10T14:02:06.332Z"
+}

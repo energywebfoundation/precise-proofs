@@ -1,28 +1,27 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const ethereumjs_util_1 = require("ethereumjs-util");
-const debug_1 = require("./debug");
+const utils_1 = require("./utils");
+const crypto = require("crypto");
 var PreciseProofs;
 (function (PreciseProofs) {
-    PreciseProofs.printTree = debug_1.printMerkleTree;
+    PreciseProofs.printTree = utils_1.printMerkleTree;
     PreciseProofs.hash = (input) => {
         return ethereumjs_util_1.bufferToHex(ethereumjs_util_1.sha3(input)).substr(2);
     };
-    const getRandomString = (length) => {
-        var random = '';
-        var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        for (var i = 0; i < length; i++) {
-            random += possible.charAt(Math.floor(Math.random() * possible.length));
-        }
-        return random;
+    const getSalt = (length, encoding = 'base64') => {
+        return crypto.randomBytes(length).toString(encoding).slice(0, length);
+    };
+    PreciseProofs.getRootHash = (merkleTree) => {
+        return merkleTree[merkleTree.length - 1][0];
     };
     PreciseProofs.sortLeafsByKey = (leafs) => {
         return leafs
             .map((leaf) => PreciseProofs.hash(leaf.key))
-            .sort() //TODO: is this unambiguous?
+            .sort()
             .map((theHash) => leafs.find((leaf) => theHash === PreciseProofs.hash(leaf.key)));
     };
-    const sortSchema = (schema) => {
+    PreciseProofs.sortSchema = (schema) => {
         return schema
             .map(key => PreciseProofs.hash(key))
             .sort()
@@ -41,9 +40,9 @@ var PreciseProofs;
                 throw new Error('Unsupported value type ' + type);
         }
     };
-    PreciseProofs.createMerkleTree = (leafHashs) => {
-        const tree = [leafHashs];
-        let lowerLevel = leafHashs;
+    PreciseProofs.createMerkleTree = (leafHashes) => {
+        const tree = [leafHashes];
+        let lowerLevel = leafHashes;
         while (lowerLevel.length > 1) {
             const newLevel = [];
             for (let i = 0; i < lowerLevel.length - 1; i = i + 2) {
@@ -60,16 +59,16 @@ var PreciseProofs;
         return PreciseProofs.hash(schema.reduce((aggregated, value) => aggregated + value));
     };
     PreciseProofs.createExtendedTreeRootHash = (merkleTreeRootHash, schema) => {
-        return PreciseProofs.hash(merkleTreeRootHash + PreciseProofs.hashSchema(sortSchema(schema)));
+        return PreciseProofs.hash(merkleTreeRootHash + PreciseProofs.hashSchema(PreciseProofs.sortSchema(schema)));
     };
     PreciseProofs.createLeafs = (inputObject, salts) => {
-        const objectKeys = sortSchema(Object.keys(inputObject));
+        const objectKeys = PreciseProofs.sortSchema(Object.keys(inputObject));
         if (salts && objectKeys.length !== salts.length) {
             throw new Error('Number of object keys and salts is not equal.');
         }
         return objectKeys.map((key, index) => {
             const canonizedValue = PreciseProofs.canonizeValue(inputObject[key]);
-            const salt = salts ? salts[index] : getRandomString(16);
+            const salt = salts ? salts[index] : getSalt(16);
             const hashValue = PreciseProofs.hash(key + canonizedValue + salt);
             return {
                 key: key,
@@ -79,7 +78,7 @@ var PreciseProofs;
             };
         });
     };
-    const creatPath = (merkleTree, leafToProof) => {
+    const createPath = (merkleTree, leafToProof) => {
         const merkleTreePath = [];
         let currentHash = leafToProof.hash;
         let remainder = [];
@@ -112,12 +111,12 @@ var PreciseProofs;
     PreciseProofs.createProof = (key, leafs, withSchema, existingMerkleTree) => {
         const sortedLeafs = PreciseProofs.sortLeafsByKey(leafs);
         const merkleTree = existingMerkleTree ? existingMerkleTree : PreciseProofs.createMerkleTree(sortedLeafs.map((leaf) => leaf.hash));
-        const leafToProof = findLeaf(sortedLeafs, key);
+        const leafToProve = findLeaf(sortedLeafs, key);
         const proof = {
             key: key,
-            value: leafToProof.value,
-            salt: leafToProof.salt,
-            proofPath: creatPath(merkleTree, leafToProof)
+            value: leafToProve.value,
+            salt: leafToProve.salt,
+            proofPath: createPath(merkleTree, leafToProve)
         };
         return withSchema ? Object.assign({}, proof, { schemaHash: PreciseProofs.hashSchema(sortedLeafs.map((leaf) => leaf.key)) }) : proof;
     };
@@ -130,7 +129,7 @@ var PreciseProofs;
         }));
         const theLeaf = findLeaf(positions, position.toString());
         const merkleTree = PreciseProofs.createMerkleTree(positions.map((leaf) => leaf.hash));
-        const path = creatPath(merkleTree, theLeaf);
+        const path = createPath(merkleTree, theLeaf);
         let stringPath = '';
         path.forEach(element => {
             if (element.right) {
@@ -166,7 +165,7 @@ var PreciseProofs;
         if (proof.schemaHash) {
             if (schema) {
                 const maxDepth = Math.ceil(Math.log2(schema.length));
-                const sortedSchema = sortSchema(schema);
+                const sortedSchema = PreciseProofs.sortSchema(schema);
                 const schemaIndex = sortedSchema.findIndex((key) => key === proof.key);
                 const extendedTreeRootHash = PreciseProofs.hash(currentHash + PreciseProofs.hashSchema(sortedSchema));
                 if (schema.length === 1) {

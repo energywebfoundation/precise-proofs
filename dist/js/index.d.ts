@@ -14,9 +14,11 @@ export declare namespace PreciseProofs {
         proofPath: any[];
     }
     const hash: (input: string) => string;
+    const getRootHash: (merkleTree: any[][]) => any;
     const sortLeafsByKey: (leafs: Leaf[]) => Leaf[];
+    const sortSchema: (schema: string[]) => string[];
     const canonizeValue: (value: any) => string;
-    const createMerkleTree: (leafHashs: string[]) => any[];
+    const createMerkleTree: (leafHashes: string[]) => any[];
     const hashSchema: (schema: string[]) => string;
     const createExtendedTreeRootHash: (merkleTreeRootHash: string, schema: string[]) => string;
     const createLeafs: (inputObject: any, salts?: string[]) => Leaf[];

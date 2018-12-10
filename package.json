@@ -1,27 +1,33 @@
 {
-  "name": "precise-proofs",
-  "version": "1.0.0",
-  "description": "",
+  "name": "precise-proofs-js",
+  "version": "0.0.0",
+  "description": "Energyweb Origin project's proof-of-concept Precise Proofs implementation and demo.",
   "main": "dist/js/index.js",
+  "types": "dist/js/index.d.ts",
   "scripts": {
     "start": "node dist/js/index.js",
     "test": "npm run build && mocha dist/js/test/",
-    "demo": "node dist/js/demo.js",
-    "demo-debug": "node --inspect-brk dist/js/demo.js",
+    "demo1": "node dist/js/demo/1_demo_simpleproof.js",
+    "demo2": "node dist/js/demo/2_demo_invalidproof.js",
+    "demo3": "node dist/js/demo/3_demo_identicalkeyattack.js",
+    "demo4": "node dist/js/demo/4_demo_schemasareimportant.js",
+    "demo5": "node dist/js/demo/5_demo_extendedproof.js",
+    "demo6": "node dist/js/demo/6_demo_extendedidenticalkeyattack.js",
+    "demo7": "node dist/js/demo/7_demo_smartcontract.js",
     "debug": "node --inspect-brk dist/js/index.js",
     "prebuild": "rm -rf dist/js",
     "build": "node_modules/typescript/bin/tsc"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/slockit/precise-proofs.git"
+    "url": "git+https://github.com/energywebfoundation/precise-proofs.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Energy Web Foundation (core@energyweb.org)",
+  "license": "GPLv3",
   "bugs": {
-    "url": "https://github.com/slockit/precise-proofs/issues"
+    "url": "https://github.com/energywebfoundation/precise-proofs/issues"
   },
-  "homepage": "https://github.com/slockit/precise-proofs#readme",
+  "homepage": "https://github.com/energywebfoundation/precise-proofs#readme",
   "dependencies": {
     "@types/chai": "^4.1.4",
     "@types/colors": "^1.2.1",
@@ -30,7 +36,8 @@
     "colors": "^1.3.1",
     "ethereumjs-util": "^5.2.0",
     "treeify": "^1.1.0",
-    "typescript": "^3.0.1"
+    "typescript": "^3.0.1",
+    "web3": "^1.0.0-beta.37"
   },
   "devDependencies": {
     "chai": "^4.1.2",
