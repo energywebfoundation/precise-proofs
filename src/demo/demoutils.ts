@@ -1,3 +1,7 @@
+import * as path from 'path'
+import * as fs from 'fs'
+import * as web3 from 'web3'
+
 export const demoinput = {
     operationalSince: 0,
     capacityWh: 10,
@@ -37,4 +41,31 @@ export const malignDemoinput = {
     can: ["never", "gonne", "give", "you", "up"],
     write: "lol",
     important: "https://www.youtube.com/watch?v=oHg5SJYRHA0"
+}
+
+export function grabRegistry(address="0x535ea027738590b1ad2521659f67fb25b08dd5ee") {
+    const w3 = new web3("https://rpc.slock.it/tobalaba")
+    const registryJSONString = fs.readFileSync(path.join(__dirname, "../../../build/contracts/PreciseProofCommitmentRegistry.json"), "utf-8")
+    const registryJSON = JSON.parse(registryJSONString)
+    //const registrycontract = new web3.eth.Contract(registryJSON.abi, "0x535ea027738590b1ad2521659f67fb25b08dd5ee");
+    return new w3.eth.Contract(registryJSON.abi, address);
+}
+
+export function newCommitment(name: string, treeHash: string, schema: any[], transaction={}) {
+    // We publish the roothash and schema
+    const registrycontract = grabRegistry()
+    console.log(JSON.stringify(schema))
+    const promise = registrycontract.methods.commitment(name, treeHash, "asd").send(transaction)
+    console.log(promise)
+    return promise
+}
+
+export async function localAccounts() {
+    const w3 = new web3("https://rpc.slock.it/tobalaba")
+    return w3.eth.getAccounts()
+}
+
+export async function getCommitment(address: string, name: string) {
+    const registrycontract = grabRegistry()
+    return await registrycontract.methods.getCommitment(address, name).call()
 }

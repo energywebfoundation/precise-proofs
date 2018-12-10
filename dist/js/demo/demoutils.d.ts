@@ -37,3 +37,7 @@ export declare const malignDemoinput: {
     write: string;
     important: string;
 };
+export declare function grabRegistry(address?: string): any;
+export declare function newCommitment(name: string, treeHash: string, schema: any[], transaction?: {}): any;
+export declare function localAccounts(): Promise<any>;
+export declare function getCommitment(address: string, name: string): Promise<any>;
