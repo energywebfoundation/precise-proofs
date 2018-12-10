@@ -1,8 +1,8 @@
-# Origin project's proof-of-concept Precise Proof implementation
+# EWF Origin project's proof-of-concept Precise Proof implementation
 
-This is a [Node JS package]() and some demo scripts for getting started with Precise Proofs.
+This is a [JS npm package](https://www.npmjs.com/package/precise-proofs-js) and some demo scripts for creating, verifying and getting started with Precise Proofs.
 
-This is still a **proof-of-concept (poc)** implementation, which should not be used in production, or be used with common sense. We are not responsible for loss of money or exposure of sensitive data.
+This is still a **proof-of-concept (poc)** implementation for demonstration purposes, which should not be used in production, or at least should be used with common sense. We are not responsible for loss of money or leaking of sensitive data.
 
 ## What are precise proofs?
 Precise Proofs is a "privacy technique" based on Merkle trees to prove that some revealed parts of your document belong to the whole document without revealing other sensitive data. This technique is used in one of Energy Web Foundation’s project called [Certificates of Origin](https://energyweb.org/origin/).
@@ -21,7 +21,7 @@ to prevent injection/duplicate key attacks and the prover to create phony proofs
 ## Maintainers
 **Primary**: Adam Nagy (@ngyam)
 
-Heiko Burkhardt (@hai-ko), who did the heavy lifting to create this poc.
+Heiko Burkhardt (@hai-ko), who did the heavy lifting and should get the credit for creating this poc.
 
 ## Quickstart
 
@@ -32,17 +32,34 @@ npm install precise-proofs-js
 
 Then in a JS project:
 ```javascript
-
-const PreciseProofs = require("precise-proofs-js");
+const {PreciseProofs} = require("precise-proofs-js");
 [...]
 
 ```
 Or in a Typescript project:
 ```javascript
-import * as PreciseProofs from "precise-proofs-js"
+import {PreciseProofs} from "precise-proofs-js"
 [...]
 ```
 Unfortunately the code is not documented. For examples look into the **demo files** or read the good source. They are quite intuitive though.
+
+```javascript
+console.log(PreciseProofs)
+```
+```
+> { printTree: [Function],
+  hash: [Function],
+  getRootHash: [Function],
+  sortLeafsByKey: [Function],
+  sortSchema: [Function],
+  canonizeValue: [Function],
+  createMerkleTree: [Function],
+  hashSchema: [Function],
+  createExtendedTreeRootHash: [Function],
+  createLeafs: [Function],
+  createProof: [Function],
+  verifyProof: [Function] }
+```
 
 ## Demos
 
