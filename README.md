@@ -1,4 +1,4 @@
-# EWF Origin project's proof-of-concept Precise Proof implementation
+# EWF Origin project's proof-of-concept Precise Proofs implementation
 
 This is a [JS npm package](https://www.npmjs.com/package/precise-proofs-js) and some demo scripts for creating, verifying and getting started with Precise Proofs.
 
