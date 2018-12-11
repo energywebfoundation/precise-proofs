@@ -118,7 +118,7 @@ npm test
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. Version number is bumped with `bumpversion` tool.
+We use [SemVer](http://semver.org/) for versioning.
 
 ## License
 
