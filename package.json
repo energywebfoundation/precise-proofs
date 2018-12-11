@@ -27,6 +27,15 @@
   "bugs": {
     "url": "https://github.com/energywebfoundation/precise-proofs/issues"
   },
+  "keywords": [
+    "precise",
+    "proofs",
+    "privacy",
+    "merkle",
+    "energyweb",
+    "ewf",
+    "origin"
+  ],
   "homepage": "https://github.com/energywebfoundation/precise-proofs#readme",
   "dependencies": {
     "@types/chai": "^4.1.4",
