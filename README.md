@@ -1,6 +1,6 @@
 # EWF Origin project's proof-of-concept Precise Proofs implementation
 
-This is a [JS npm package](https://www.npmjs.com/package/precise-proofs-js) and some demo scripts for creating, verifying and getting started with Precise Proofs.
+This is a [JS npm package](https://www.npmjs.com/package/precise-proofs-js) and some demo scripts for creating-, verifying- and getting started with Precise Proofs.
 
 This is still a **proof-of-concept (poc)** implementation for demonstration purposes, which should not be used in production, or at least should be used with common sense. We are not responsible for loss of money or leaking of sensitive data.
 
@@ -124,12 +124,12 @@ We use [SemVer](http://semver.org/) for versioning.
 
 This project is licensed under GPLv3 - see the [LICENSE](./LICENSE) file for details.
 
-## Limitatins of this poc
+## Limitatons of this poc
  - Not optimized for efficieny/saving space/gas
  - Proof format is not as generic as [Centrifuge's protobuf one](https://github.com/centrifuge/precise-proofs/blob/master/proofs/proto/proof.proto)
  - Nested objects / arrays are flattened out as a big string (minimal support)
  - You can generate a proof for one revealed field at a time
- - Duplicate keys are not prohibited in the schema
+ - Duplicate keys are not prohibited in the schema (but visible)
  - Only JS implementation so far
 
 ## Output examples
