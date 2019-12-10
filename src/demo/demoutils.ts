@@ -1,8 +1,6 @@
 import * as path from 'path'
 import * as fs from 'fs'
-import * as web3 from 'web3'
-import { Interface } from 'mocha';
-
+import Web3 from 'web3'
 
 interface Transaction {
     from: string
@@ -52,7 +50,7 @@ export const malignDemoinput = {
 }
 
 export function grabRegistry(address="0x535ea027738590b1ad2521659f67fb25b08dd5ee") {
-    const w3 = new web3(rpcEndpoint)
+    const w3 = new Web3(rpcEndpoint)
     const registryJSONString = fs.readFileSync(path.join(__dirname, "../../../build/contracts/PreciseProofCommitmentRegistry.json"), "utf-8")
     const registryJSON = JSON.parse(registryJSONString)
     //const registrycontract = new web3.eth.Contract(registryJSON.abi, "0x535ea027738590b1ad2521659f67fb25b08dd5ee");
@@ -67,7 +65,7 @@ export function newCommitment(name: string, treeHash: string, schema: any[], tra
 }
 
 export function localAccounts() {
-    const w3 = new web3(rpcEndpoint)
+    const w3 = new Web3(rpcEndpoint)
     return w3.eth.getAccounts()
 }
 
