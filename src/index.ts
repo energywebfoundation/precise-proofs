@@ -26,8 +26,8 @@ export namespace PreciseProofs {
         return bufferToHex(sha3(input)).substr(2)
     }
 
-    const getSalt = (length: number, encoding: string = 'base64') => {
-        return crypto.randomBytes(length).toString(encoding).slice(0, length)
+    const getSalt = (length: number = 20, encoding: string = 'hex') => {
+        return crypto.randomBytes(length).toString(encoding)
     }
 
     export  const getRootHash = (merkleTree: any[][]) => {
@@ -100,7 +100,7 @@ export namespace PreciseProofs {
 
         return objectKeys.map((key, index) => {
             const canonizedValue = canonizeValue(inputObject[key])
-            const salt = salts ? salts[index] : getSalt(16)
+            const salt = salts ? salts[index] : getSalt()
             const hashValue = hash(key + canonizedValue + salt)
             
             return {
