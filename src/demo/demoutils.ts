@@ -1,6 +1,6 @@
 import * as path from 'path'
 import * as fs from 'fs'
-import Web3 from 'web3'
+const Web3 = require('web3')
 
 interface Transaction {
     from: string
@@ -71,7 +71,8 @@ export function localAccounts() {
 
 export async function getCommitment(address: string, name: string) {
     const registrycontract = grabRegistry()
-    let result = await registrycontract.methods.getCommitment(address, name).call()
+    const result = await registrycontract.methods.getCommitment(address, name).call()
+    console.log(result);
     return {
         merkleRoot: result[0],
         schema: parseSchema(result[1])

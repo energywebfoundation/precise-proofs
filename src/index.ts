@@ -45,7 +45,7 @@ export namespace PreciseProofs {
     const type = typeof value;
     switch (type) {
       case "string":
-        return utils.asciiToHex(value);
+        return Buffer.from(value).toString("base64");
       case "number":
       case "boolean":
       case "object":
@@ -225,13 +225,13 @@ export namespace PreciseProofs {
 
     if (proof.schemaHash) {
       if (schema) {
-        const maxDepth = Math.ceil(Math.log2(schema.length));
         const sortedSchema = sortSchema(schema);
         const schemaIndex = sortedSchema.findIndex(
           (key: string) => key === proof.key
         );
         const extendedTreeRootHash = hash(
-          currentHash + hashSchema(sortedSchema)
+          currentHash,
+          hashSchema(sortedSchema)
         );
 
         if (schema.length === 1) {

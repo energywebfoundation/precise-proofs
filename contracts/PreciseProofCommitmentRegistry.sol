@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.12;
 
 
 // This is only for demonstration purposes
@@ -14,17 +14,17 @@ contract PreciseProofCommitmentRegistry {
 
     mapping(address => mapping(string => Commitment)) internal commitments;
 
-    function commitment(string _name, string _hash, string _schema) public returns (bool) {
+    function commitment(string memory _name, string memory _hash, string memory _schema) public returns (bool) {
         commitments[msg.sender][_name] = Commitment(_hash, _schema);
         emit NewCommitment(msg.sender, _name);
         return true;
     }
 
-    function getCommitment(address _by, string _name) external view returns (string, string) {
+    function getCommitment(address _by, string calldata _name) external view returns (string memory, string memory) {
         return (commitments[_by][_name].merkleRoot, commitments[_by][_name].schema);
     }
 
-    function checkCommitment(address _by, string _name, string _hash) external view returns (bool) {
+    function checkCommitment(address _by, string calldata _name, string calldata _hash) external view returns (bool) {
         return (keccak256(bytes(commitments[_by][_name].merkleRoot)) == keccak256(bytes(_hash)));
     }
 }
