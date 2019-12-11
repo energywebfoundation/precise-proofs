@@ -91,6 +91,11 @@ Publishing the merkle root / schema as a commitment to Smart Contract, which the
  3. Prover sends the proof off-chain to the verifier
  4. Verifier reads the commitment on-chain and verifies the proof off-chain
 
+### Demo 8
+Creating precise proof and using on-chain verifier to prove. 
+ 1. Prover creates a proof
+ 2. Verifier uses on-chain verifier to prove the proof 
+
 ## Contributing
 
 Please read [contributing](./CONTRIBUTING.md) and our [code of conduct](./CODE_OF_CONDUCT.md) for details.
@@ -153,15 +158,15 @@ A document (JSON):
 Leafs:
 ```
 [ { key: 'region',
-    value: 'Saxony',
-    salt: 'aj0hPzUj1dsAz2vB',
-    hash:
-     '187905b76121dcc69b92528c06bdf0488fb8f3c518cd92b279f7b37d1e16d709' },
+    value: 'U2F4b255',
+    salt: 'LpFp9PDgFfumrYj/',
+    hash: 
+     '0xa9137a2bea5ce2c04c4406d764ea91044e3f793f9e273732a3bc691c435256a7',
   { key: 'gpsLongitude',
-    value: '0',
-    salt: 'k5JvqfiX3wThba9l',
+    value: 'MTIuOTgwOTc3',
+    salt: 'PPiIor5ZjSb3ISpV',
     hash:
-     '98a42887ea117ee032fb925643749d175167e5ebf751c2592e580dcf739f5f89' },
+     '0x5c7687899e737d4394bb7f66409441c900f2c2cbc32514e76596115fb6405929' },
 ...]
 ```
 
@@ -171,16 +176,23 @@ Extended Merkle Tree:
 
 Proof: 
 ```
-{ key: 'street',
-  value: 'Main Street',
-  salt: 'EU1rw9ZpD9DwcRRU',
-  proofPath:
-   [ { left:
-        '710b9f14ac3a5c84b1d91b71707f6afed596e608d335847faed0ca2d4b5e71a1' },
-     { right:
-        '7a6d8e0106e10c2d5ae07c559d859092be703ff0ee43d5b7c95f66f6b9116976' },
-     { left:
-        'b632f8f9ade851a0748bdd0038f253bbfda967f0c83cd1500ede2183e98742e3' },
-     { right:
-        '72114321d2844700bda3dff640045d54aae27abfdc792b66134ae67437c9c8bb' } ] }
+{
+  key: 'street',
+  value: 'TWFpbiBTdHJlZXQ=',
+  salt: 'zcgja7NX7lkC2QRf',
+  proofPath: [
+    {
+      right: '0x1aa21bd98ca498bfdf530f6ef508ef088b3db6b5c3492ff530e695a213cf962e'
+    },
+    {
+      left: '0x8c792b76a96463f40e9c40ab10c203eb0f49d401c25a91f0284158ec34db6255'
+    },
+    {
+      left: '0x570c210a5bb120c6fddab47d59c38b1932b51c262b2fe2434f95d46f93d1b119'
+    },
+    {
+      right: '0xf69d1880dd4b21e9c462fc76e3e59103b86756aa2c775b0bb47a16e079e7c862'
+    }
+  ]
+}
 ```
