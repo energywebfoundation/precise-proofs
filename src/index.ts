@@ -24,11 +24,10 @@ export namespace PreciseProofs {
     return utils.soliditySha3(...params);
   };
 
-  const getSalt = (length: number, encoding: string = "base64") => {
+  const getSalt = (byteLength: number, encoding: string = "base64") => {
     return crypto
-      .randomBytes(length)
+      .randomBytes(byteLength)
       .toString(encoding)
-      .slice(0, length);
   };
 
   export const getRootHash = (merkleTree: any[][]) => {
