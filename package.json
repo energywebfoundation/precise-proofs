@@ -40,19 +40,19 @@
   "homepage": "https://github.com/energywebfoundation/precise-proofs#readme",
   "dependencies": {
     "build": "^0.1.4",
-    "colors": "^1.3.1",
+    "colors": "^1.4.0",
     "treeify": "^1.1.0",
     "web3": "1.2.4"
   },
   "devDependencies": {
-    "@types/chai": "^4.1.4",
+    "@types/chai": "^4.2.7",
     "@types/colors": "^1.2.1",
-    "@types/mocha": "^5.2.5",
-    "chai": "^4.1.2",
-    "ganache-cli": "^6.7.0",
+    "@types/mocha": "^5.2.7",
+    "chai": "^4.2.0",
+    "ganache-cli": "^6.8.1",
     "mocha": "^5.2.0",
-    "truffle": "^5.1.3",
+    "truffle": "^5.1.8",
     "truffle-contract": "^4.0.31",
-    "typescript": "^3.0.1"
+    "typescript": "^3.7.4"
   }
 }
