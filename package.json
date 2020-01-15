@@ -14,6 +14,7 @@
     "demo5": "node dist/js/demo/5_demo_extendedproof.js",
     "demo6": "node dist/js/demo/6_demo_extendedidenticalkeyattack.js",
     "demo7": "node dist/js/demo/7_demo_smartcontract.js",
+    "demo8": "node dist/js/demo/8_demo_verifier.js",
     "debug": "node --inspect-brk dist/js/index.js",
     "prebuild": "rm -rf dist/js",
     "build": "node_modules/typescript/bin/tsc"
@@ -38,18 +39,20 @@
   ],
   "homepage": "https://github.com/energywebfoundation/precise-proofs#readme",
   "dependencies": {
-    "@types/chai": "^4.1.4",
-    "@types/colors": "^1.2.1",
-    "@types/ethereumjs-util": "^5.2.0",
-    "@types/mocha": "^5.2.5",
+    "build": "^0.1.4",
     "colors": "^1.3.1",
-    "ethereumjs-util": "^5.2.0",
     "treeify": "^1.1.0",
-    "typescript": "^3.0.1",
-    "web3": "^1.0.0-beta.37"
+    "web3": "1.2.4"
   },
   "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/colors": "^1.2.1",
+    "@types/mocha": "^5.2.5",
     "chai": "^4.1.2",
-    "mocha": "^5.2.0"
+    "ganache-cli": "^6.7.0",
+    "mocha": "^5.2.0",
+    "truffle": "^5.1.3",
+    "truffle-contract": "^4.0.31",
+    "typescript": "^3.0.1"
   }
 }
