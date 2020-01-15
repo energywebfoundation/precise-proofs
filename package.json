@@ -1,6 +1,6 @@
 {
   "name": "precise-proofs-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Energyweb Origin project's proof-of-concept Precise Proofs implementation and demo.",
   "main": "dist/js/index.js",
   "types": "dist/js/index.d.ts",
@@ -18,7 +18,7 @@
     "debug": "node --inspect-brk dist/js/index.js",
     "prebuild": "rm -rf dist/js",
     "build": "tsc",
-    "prepublishOnly" : "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
