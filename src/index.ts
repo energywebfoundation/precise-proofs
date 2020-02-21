@@ -44,7 +44,7 @@ export namespace PreciseProofs {
     const type = typeof value;
     switch (type) {
       case "string":
-        return Buffer.from(value).toString("base64");
+        return utils.isAddress(value) ? value : Buffer.from(value).toString("base64");
       case "number":
       case "boolean":
       case "object":
