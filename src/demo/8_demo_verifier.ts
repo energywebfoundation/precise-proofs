@@ -50,7 +50,7 @@ const provider = new ethers.providers.JsonRpcProvider("http://localhost:8545");
 
   const result = await verifierWithSigner.verify(
     key,
-    new BigNumber(value),
+    value,
     salt,
     rootHash,
     onChainProof
