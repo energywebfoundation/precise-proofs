@@ -1,16 +1,32 @@
 import { ethers } from 'ethers'
 import { PreciseProofCommitmentRegistryFactory } from '../ethers/PreciseProofCommitmentRegistryFactory'
-import { BigNumber, bigNumberify } from 'ethers/utils'
+import { bigNumberify } from 'ethers/utils'
 
 interface Transaction {
     from: string
 } 
 
-interface IOwnershipCommitment {
-    [address: string]: BigNumber;
-}
-
-export const demoinput: IOwnershipCommitment = {
+export const demoinput = {
+    operationalSince: 0,
+    capacityWh: 10,
+    country: "Germany",
+    region: "Saxony",
+    active: true,
+    nestedObject: {
+        id: 1,
+        somedata: "hello",
+        ObjectInObjectInObject: {
+            id:2,
+            somedata: "there"
+        }
+    },
+    zip: "09648",
+    city: "Mittweida",
+    street: "Main Street",
+    houseNumber: "101",
+    gpsLatitude: "50.986783",
+    gpsLongitude: "12.980977",
+    listElement: [1, 3, 3],
     '0x5B1B89A48C1fB9b6ef7Fb77C453F2aAF4b156d45': bigNumberify(100)
 }
 
