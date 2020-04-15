@@ -7,7 +7,7 @@ contract Verifier {
       bytes32 hash;
     }
 
-    function verify(string memory key, string memory value, string memory salt, bytes32 rootHash, Proof[] memory proof) public pure returns (bool) {
+    function verify(address key, uint value, string memory salt, bytes32 rootHash, Proof[] memory proof) public pure returns (bool) {
         bytes32 hash = keccak256(abi.encodePacked(key, value, salt));
         
         for(uint i=0; i<proof.length; i++) {

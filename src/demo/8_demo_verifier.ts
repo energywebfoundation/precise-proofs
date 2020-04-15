@@ -1,18 +1,17 @@
 import { PreciseProofs } from "..";
 import { printMerkleTree } from "../utils";
 import { demoinput } from "./demoutils";
+import { VerifierFactory } from "../ethers/VerifierFactory";
+import { ethers } from "ethers";
+import { BigNumber } from "ethers/utils";
 
-const Web3 = require("web3");
-const contract = require("truffle-contract");
-const contractJson = require("../../../build/contracts/Verifier.json");
-
-const provider = new Web3.providers.HttpProvider("http://localhost:8545");
-const Verifier = contract(contractJson);
+const provider = new ethers.providers.JsonRpcProvider("http://localhost:8545");
 
 (async () => {
-  Verifier.setProvider(provider);
-  const [from] = await new Web3(provider).eth.getAccounts();
-  const verifier = await Verifier.new({ from });
+  const signer = await provider.getSigner();
+
+  const verifier = await new VerifierFactory(signer).deploy();
+  const verifierWithSigner = verifier.connect(signer);
 
   console.log("\n\n### Object ###\n");
   console.log(demoinput);
@@ -31,7 +30,7 @@ const Verifier = contract(contractJson);
   printMerkleTree(merkleTree, leafs);
 
   console.log("\n\n### Proof ###\n");
-  const theProof = PreciseProofs.createProof("street", leafs, false);
+  const theProof = PreciseProofs.createProof("0x5B1B89A48C1fB9b6ef7Fb77C453F2aAF4b156d45", leafs, false);
   console.log(theProof);
 
   console.log("\nVerifying the proof to the root hash: " + rootHash);
@@ -49,7 +48,7 @@ const Verifier = contract(contractJson);
 
   const { key, value, salt } = theProof;
 
-  const result = await verifier.verify(
+  const result = await verifierWithSigner.verify(
     key,
     value,
     salt,

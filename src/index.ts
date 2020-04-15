@@ -1,6 +1,17 @@
 import { printMerkleTree } from "./utils";
 import * as crypto from "crypto";
 import * as utils from "web3-utils";
+import { BigNumber, getAddress } from "ethers/utils";
+
+function isAddress(address) {
+    try {
+        getAddress(address);
+    } catch (e) {
+      return false;
+    }
+
+    return true;
+}
 
 export namespace PreciseProofs {
   export const printTree = printMerkleTree;
@@ -41,10 +52,14 @@ export namespace PreciseProofs {
     schema.sort((a, b) => hash(a).localeCompare(hash(b)));
 
   export const canonizeValue = (value: any): string => {
+    if (BigNumber.isBigNumber(value)) {
+      return value.toString();
+    }
+
     const type = typeof value;
     switch (type) {
       case "string":
-        return utils.isAddress(value) ? value : Buffer.from(value).toString("base64");
+        return isAddress(value) ? value : Buffer.from(value).toString("base64");
       case "number":
       case "boolean":
       case "object":

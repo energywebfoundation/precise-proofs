@@ -1,6 +1,6 @@
-import * as path from 'path'
-import * as fs from 'fs'
-const Web3 = require('web3')
+import { ethers } from 'ethers'
+import { PreciseProofCommitmentRegistryFactory } from '../ethers/PreciseProofCommitmentRegistryFactory'
+import { bigNumberify } from 'ethers/utils'
 
 interface Transaction {
     from: string
@@ -26,7 +26,8 @@ export const demoinput = {
     houseNumber: "101",
     gpsLatitude: "50.986783",
     gpsLongitude: "12.980977",
-    listElement: [1, 3, 3]
+    listElement: [1, 3, 3],
+    '0x5B1B89A48C1fB9b6ef7Fb77C453F2aAF4b156d45': bigNumberify(100)
 }
 
 const rpcEndpoint = "http://localhost:8545"
@@ -50,28 +51,25 @@ export const malignDemoinput = {
 }
 
 export function grabRegistry(address="0x535ea027738590b1ad2521659f67fb25b08dd5ee") {
-    const w3 = new Web3(rpcEndpoint)
-    const registryJSONString = fs.readFileSync(path.join(__dirname, "../../../build/contracts/PreciseProofCommitmentRegistry.json"), "utf-8")
-    const registryJSON = JSON.parse(registryJSONString)
-    //const registrycontract = new web3.eth.Contract(registryJSON.abi, "0x535ea027738590b1ad2521659f67fb25b08dd5ee");
-    return new w3.eth.Contract(registryJSON.abi, address);
+    const provider = new ethers.providers.JsonRpcProvider(rpcEndpoint);
+    return PreciseProofCommitmentRegistryFactory.connect(address, provider);
 }
 
 export function newCommitment(name: string, treeHash: string, schema: any[], transaction: Transaction) {
     // We publish the roothash and schema
-    const registrycontract = grabRegistry()
-    const schemaString = JSON.stringify(schema)
-    return registrycontract.methods.commitment(name, treeHash, schemaString).send(transaction)
+    const registrycontract = grabRegistry();
+    const schemaString = JSON.stringify(schema);
+    return registrycontract.methods.commitment(name, treeHash, schemaString).send(transaction);
 }
 
 export function localAccounts() {
-    const w3 = new Web3(rpcEndpoint)
-    return w3.eth.getAccounts()
+    const provider = new ethers.providers.JsonRpcProvider(rpcEndpoint);
+    return provider.listAccounts();
 }
 
 export async function getCommitment(address: string, name: string) {
-    const registrycontract = grabRegistry()
-    const result = await registrycontract.methods.getCommitment(address, name).call()
+    const registrycontract = grabRegistry();
+    const result = await registrycontract.methods.getCommitment(address, name).call();
     console.log(result);
     return {
         merkleRoot: result[0],
@@ -80,5 +78,5 @@ export async function getCommitment(address: string, name: string) {
 }
 
 export function parseSchema(schemaString: string) {
-    return JSON.parse(schemaString)
+    return JSON.parse(schemaString);
 }
