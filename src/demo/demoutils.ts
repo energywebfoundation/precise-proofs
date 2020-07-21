@@ -1,6 +1,5 @@
-import { ethers } from 'ethers'
+import { ethers, BigNumber } from 'ethers'
 import { PreciseProofCommitmentRegistryFactory } from '../ethers/PreciseProofCommitmentRegistryFactory'
-import { bigNumberify } from 'ethers/utils'
 
 interface Transaction {
     from: string
@@ -27,7 +26,7 @@ export const demoinput = {
     gpsLatitude: "50.986783",
     gpsLongitude: "12.980977",
     listElement: [1, 3, 3],
-    '0x5B1B89A48C1fB9b6ef7Fb77C453F2aAF4b156d45': bigNumberify(100)
+    '0x5B1B89A48C1fB9b6ef7Fb77C453F2aAF4b156d45': BigNumber.from(100)
 }
 
 const rpcEndpoint = "http://localhost:8545"
