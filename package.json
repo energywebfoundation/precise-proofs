@@ -20,7 +20,7 @@
     "build": "yarn compile && yarn build:typechain && tsc",
     "prepublishOnly": "npm run build",
     "compile": "truffle compile",
-    "build:typechain": "typechain --target ethers --outDir src/ethers './build/contracts/*.json'"
+    "build:typechain": "typechain --target ethers-v5 --outDir src/ethers './build/contracts/*.json'"
   },
   "repository": {
     "type": "git",
@@ -42,23 +42,23 @@
   ],
   "homepage": "https://github.com/energywebfoundation/precise-proofs#readme",
   "dependencies": {
-    "build": "^0.1.4",
-    "colors": "^1.4.0",
-    "ethers": "^4.0.46",
-    "treeify": "^1.1.0",
-    "web3-utils": "^1.2.6"
+    "build": "0.1.4",
+    "colors": "1.4.0",
+    "ethers": "5.0.7",
+    "treeify": "1.1.0",
+    "web3-utils": "1.2.6"
   },
   "devDependencies": {
-    "@types/chai": "^4.2.7",
-    "@types/colors": "^1.2.1",
-    "@types/mocha": "^5.2.7",
-    "chai": "^4.2.0",
-    "ganache-cli": "^6.8.1",
-    "mocha": "^5.2.0",
-    "truffle": "^5.1.8",
-    "truffle-contract": "^4.0.31",
-    "typechain": "^1.0.5",
-    "typechain-target-ethers": "^1.0.4",
-    "typescript": "^3.7.4"
+    "@typechain/ethers-v5": "0.0.3",
+    "@types/chai": "4.2.7",
+    "@types/colors": "1.2.1",
+    "@types/mocha": "5.2.7",
+    "chai": "4.2.0",
+    "ganache-cli": "6.8.1",
+    "mocha": "5.2.0",
+    "truffle": "5.1.8",
+    "truffle-contract": "4.0.31",
+    "typechain": "2.0.0",
+    "typescript": "3.7.4"
   }
 }

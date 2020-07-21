@@ -2,8 +2,7 @@ import { PreciseProofs } from "..";
 import { printMerkleTree } from "../utils";
 import { demoinput } from "./demoutils";
 import { VerifierFactory } from "../ethers/VerifierFactory";
-import { ethers } from "ethers";
-import { BigNumber } from "ethers/utils";
+import { ethers, BigNumber } from "ethers";
 
 const provider = new ethers.providers.JsonRpcProvider("http://localhost:8545");
 

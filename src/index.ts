@@ -1,11 +1,11 @@
 import { printMerkleTree } from "./utils";
 import * as crypto from "crypto";
 import * as utils from "web3-utils";
-import { BigNumber, getAddress } from "ethers/utils";
+import { BigNumber, ethers } from "ethers";
 
 function isAddress(address) {
     try {
-        getAddress(address);
+      ethers.utils.getAddress(address);
     } catch (e) {
       return false;
     }
