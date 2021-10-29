@@ -1,11 +1,9 @@
-# EWF Origin project's proof-of-concept Precise Proofs implementation
+# Precise Proofs implementation
 
 This is a [JS npm package](https://www.npmjs.com/package/precise-proofs-js) and some demo scripts for creating-, verifying- and getting started with Precise Proofs.
 
-This is still a **proof-of-concept (poc)** implementation for demonstration purposes, which should not be used in production, or at least should be used with common sense. We are not responsible for loss of money or leaking of sensitive data.
-
 ## What are precise proofs?
-Precise Proofs is a "privacy technique" based on Merkle trees to prove that some revealed parts of your document belong to the whole document without revealing other sensitive data. This technique is used in one of Energy Web Foundation’s project called [Certificates of Origin](https://energyweb.org/origin/).
+Precise Proofs is a "privacy technique" based on Merkle trees to prove that some revealed parts of your document belong to the whole document without revealing other sensitive data
 For more information on Precise Proofs, please refer to [EnergyWeb's Privacy wiki page](https://energyweb.atlassian.net/wiki/spaces/EWF/pages/610992129/Privacy+solutions+overview).
 
 This implementation was inspired by [Centrifuge's Precise Proofs implementation in Go](https://github.com/centrifuge/precise-proofs). In our version we emphasized improved security by:
