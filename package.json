@@ -27,7 +27,7 @@
     "url": "git+https://github.com/energywebfoundation/precise-proofs.git"
   },
   "author": "Energy Web Foundation (core@energyweb.org)",
-  "license": "GPLv3",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/energywebfoundation/precise-proofs/issues"
   },
