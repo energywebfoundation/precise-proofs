@@ -125,7 +125,7 @@ We use [SemVer](http://semver.org/) for versioning.
 
 ## License
 
-This project is licensed under GPLv3 - see the [LICENSE](./LICENSE) file for details.
+This project is licensed under MIT - see the [LICENSE](./LICENSE) file for details.
 
 ## Limitatons of this poc
  - Not optimized for efficieny/saving space/gas
