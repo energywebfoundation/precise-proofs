@@ -19,7 +19,7 @@ to prevent injection/duplicate key attacks and the prover to create phony proofs
 ## Maintainers
 **Primary**: Adam Nagy (@ngyam)
 
-Heiko Burkhardt (@hai-ko), who did the heavy lifting and should get the credit for creating this poc.
+Heiko Burkhardt (@hai-ko), who did the heavy lifting and should get the credit for creating this implementation.
 
 ## Quickstart
 
@@ -80,7 +80,7 @@ Extended proof generation and successful verification example which includes the
 ### Demo 6
 How an identical key attack looks like if you include the schema hash.
 
-Lesson: if you see a published commitment & schema with 2 identical keys, you should not trust any proof for that. In the poc implementation, a duplicate key attack is only possible for the key **first in the "abc" order**, otherwise the verification simply fails (leaf position matters).
+Lesson: if you see a published commitment & schema with 2 identical keys, you should not trust any proof for that. In the implementation, a duplicate key attack is only possible for the key **first in the "abc" order**, otherwise the verification simply fails (leaf position matters).
 
 ### Demo 7
 Publishing the merkle root / schema as a commitment to Smart Contract, which the verifier can interact with.
@@ -127,7 +127,7 @@ We use [SemVer](http://semver.org/) for versioning.
 
 This project is licensed under MIT - see the [LICENSE](./LICENSE) file for details.
 
-## Limitatons of this poc
+## Limitatons
  - Not optimized for efficieny/saving space/gas
  - Proof format is not as generic as [Centrifuge's protobuf one](https://github.com/centrifuge/precise-proofs/blob/master/proofs/proto/proof.proto)
  - Nested objects / arrays are flattened out as a big string (minimal support)
