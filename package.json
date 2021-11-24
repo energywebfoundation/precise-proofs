@@ -1,6 +1,6 @@
 {
-  "name": "precise-proofs-js",
-  "version": "1.1.0",
+  "name": "ew-precise-proofs-js",
+  "version": "1.3.0",
   "description": "Energyweb Origin project's proof-of-concept Precise Proofs implementation and demo.",
   "main": "dist/js/index.js",
   "types": "dist/js/index.d.ts",
