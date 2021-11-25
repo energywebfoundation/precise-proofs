@@ -27,9 +27,7 @@ Heiko Burkhardt (@hai-ko), who did the heavy lifting and should get the credit f
 
 In your project:
 ```bash
-npm install 
-
-
+npm install ew-precise-proofs-js
 ```
 
 Then in a JS project:
