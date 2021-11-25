@@ -1,6 +1,8 @@
+[![NPM Version](https://badge.fury.io/js/ew-precise-proofs-js.svg?style=flat)](https://npmjs.org/package/ew-precise-proofs-js)
+
 # Precise Proofs implementation
 
-This is a [JS npm package](https://www.npmjs.com/package/precise-proofs-js) and some demo scripts for creating-, verifying- and getting started with Precise Proofs.
+This is a [JS npm package](https://www.npmjs.com/package/ew-precise-proofs-js) and some demo scripts for creating-, verifying- and getting started with Precise Proofs.
 
 ## What are precise proofs?
 Precise Proofs is a "privacy technique" based on Merkle trees to prove that some revealed parts of your document belong to the whole document without revealing other sensitive data
@@ -25,18 +27,18 @@ Heiko Burkhardt (@hai-ko), who did the heavy lifting and should get the credit f
 
 In your project:
 ```bash
-npm install precise-proofs-js
+npm install ew-precise-proofs-js
 ```
 
 Then in a JS project:
 ```javascript
-const {PreciseProofs} = require("precise-proofs-js");
+const {PreciseProofs} = require("ew-precise-proofs-js");
 [...]
 
 ```
 Or in a Typescript project:
 ```javascript
-import {PreciseProofs} from "precise-proofs-js"
+import {PreciseProofs} from "ew-precise-proofs-js"
 [...]
 ```
 Unfortunately the code is not documented. For examples look into the **demo files** or read the good source. They are quite intuitive though.
