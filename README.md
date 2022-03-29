@@ -139,7 +139,7 @@ This project is licensed under MIT - see the [LICENSE](./LICENSE) file for detai
 
 ## Output examples
 
-A document (JSON): 
+### A document (JSON): 
 ```
 { operationalSince: 0,
   capacityWh: 10,
@@ -155,7 +155,7 @@ A document (JSON):
   gpsLatitude: '0',
   gpsLongitude: '0' }
 ```
-Leafs:
+### Leafs:
 ```
 [ { key: 'region',
     value: 'U2F4b255',
