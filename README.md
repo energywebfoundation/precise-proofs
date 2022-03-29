@@ -170,7 +170,7 @@ Leafs:
 ...]
 ```
 
-Extended Merkle Tree:
+### Extended Merkle Tree:
 
 ![Tree](doc-assets/tree.png "Tree")
 
