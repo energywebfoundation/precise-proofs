@@ -68,7 +68,7 @@ After cloning the repo and installing dependencies, you can run the demo scripts
 ### Demo 1
 Simple proof generation and successful verification example which does not include the schema hash.
 ### Demo 2
-Simple proof generation with a bad proof and failed verification
+Simple proof generation with a bad proof and failed verification.
 ### Demo 3
 Demonstration of an identical key attack in the case you are not including the schema hash.
 
