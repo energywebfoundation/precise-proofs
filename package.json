@@ -54,8 +54,8 @@
     "@types/mocha": "5.2.7",
     "chai": "4.2.0",
     "ganache-cli": "6.8.1",
-    "mocha": "5.2.0",
-    "truffle": "5.1.8",
+    "mocha": "10.2.0",
+    "truffle": "5.7.8",
     "truffle-contract": "4.0.31",
     "typechain": "2.0.0",
     "typescript": "3.7.4"
